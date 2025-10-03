@@ -70,7 +70,8 @@ export default function Header() {
               size="md"
               aria-label="Open Menu"
               display={{ base: "flex", md: "none" }}
-              bg="background"
+              bg="primary"
+              color="white"
               _hover={{ bg: "accent" }}
               ml="auto"
             >
