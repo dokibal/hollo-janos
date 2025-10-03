@@ -91,14 +91,14 @@ export default function Header() {
                       </HStack>
                     ))}
                     <Flex w="full" justify="center">
-                      <Link
+                      <ChakraLink
                         href={phoneNumberLink}
                         _hover={{ textDecoration: "none" }}
                       >
                         <Button bg="accent" color="white" size="lg">
                           Hívjon most
                         </Button>
-                      </Link>
+                      </ChakraLink>
                     </Flex>
                   </VStack>
                 </Drawer.Body>
