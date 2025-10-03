@@ -86,7 +86,9 @@ export default function Header() {
                       <HStack>
                         <Box as="span">{item.icon}</Box>
                         <Link to={item.to} smooth={true} duration={500}>
-                          <ChakraLink cursor="pointer">{item.title}</ChakraLink>
+                          <ChakraLink cursor="pointer" color="white">
+                            {item.title}
+                          </ChakraLink>
                         </Link>
                       </HStack>
                     ))}
