@@ -1,4 +1,4 @@
-"use client";
+// TODO: put back "use client";
 
 import { Box } from "@chakra-ui/react";
 import Services from "./modules/services";
