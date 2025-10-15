@@ -10,6 +10,7 @@ import {
   HStack,
   VStack,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { phoneNumberLink } from "../constants";
@@ -40,9 +41,12 @@ export default function Header() {
     >
       <Flex alignItems="center">
         <Link to="" smooth={true} duration={500}>
-          <Box fontWeight="bold" cursor="pointer">
-            ⚡
-          </Box>
+          <HStack>
+            <Box fontWeight="bold" cursor="pointer">
+              ⚡
+            </Box>
+            <Heading color="primary">Holló Vill</Heading>
+          </HStack>
         </Link>
 
         <HStack
