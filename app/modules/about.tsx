@@ -18,7 +18,7 @@ export default function About() {
     <Element name="">
       <Box
         minH="100vh"
-        p="5em"
+        p="2em"
         bg="white"
         color="secondary"
         display="flex"

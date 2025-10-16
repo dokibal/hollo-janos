@@ -14,7 +14,7 @@ import Form from "./form";
 export default function Contact() {
   return (
     <Element name="contact">
-      <Box minH="100vh" p="5em" bg="white" color="secondary">
+      <Box minH="100vh" p="2em" bg="white" color="secondary">
         <Heading mb="2em">Vedd fel velünk a kapcsolatot!</Heading>
         <SimpleGrid columns={{ base: 1, md: 2 }}>
           <GridItem

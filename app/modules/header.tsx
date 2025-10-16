@@ -9,11 +9,12 @@ import {
   IconButton,
   HStack,
   VStack,
-  Button,
   Heading,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { phoneNumberLink } from "../constants";
+import { useState } from "react";
+import { Button } from "../components/button";
 
 type NavItem = {
   to: string;
@@ -28,18 +29,20 @@ const navItems: NavItem[] = [
 ];
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
   return (
     <Box
       bg="white"
       color="white"
-      p={4}
+      p="0.5em"
+      width="100%"
       position="fixed"
       top="0"
-      right="0"
       left="0"
       zIndex="1000"
     >
-      <Flex alignItems="center">
+      <Flex alignItems="center" w="100%">
         <Link to="" smooth={true} duration={500}>
           <HStack>
             <Box fontWeight="bold" cursor="pointer">
@@ -68,7 +71,11 @@ export default function Header() {
           ))}
         </HStack>
 
-        <Drawer.Root>
+        <Drawer.Root
+          open={menuOpen}
+          onOpenChange={(e) => setMenuOpen(e.open)}
+          placement="top"
+        >
           <Drawer.Trigger asChild>
             <IconButton
               size="md"
@@ -83,14 +90,19 @@ export default function Header() {
             </IconButton>
           </Drawer.Trigger>
           <Portal>
-            <Drawer.Positioner>
+            <Drawer.Positioner pt="3em">
               <Drawer.Content bg="primary">
-                <Drawer.Body mt="5em">
-                  <VStack gap={6} align="start">
+                <Drawer.Body mt="2em">
+                  <VStack gap={6} align="center">
                     {navItems.map((item) => (
                       <HStack>
                         <Box as="span">{item.icon}</Box>
-                        <Link to={item.to} smooth={true} duration={500}>
+                        <Link
+                          to={item.to}
+                          smooth={true}
+                          duration={500}
+                          onClick={() => setMenuOpen(false)}
+                        >
                           <ChakraLink cursor="pointer" color="white">
                             {item.title}
                           </ChakraLink>
@@ -102,7 +114,7 @@ export default function Header() {
                         href={phoneNumberLink}
                         _hover={{ textDecoration: "none" }}
                       >
-                        <Button bg="accent" color="white" size="lg">
+                        <Button bg="accent" color="white">
                           Hívjon most
                         </Button>
                       </ChakraLink>
