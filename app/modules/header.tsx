@@ -37,6 +37,7 @@ export default function Header() {
       color="white"
       p="0.5em"
       width="100%"
+      boxShadow="sm"
       position="fixed"
       top="0"
       left="0"
@@ -74,7 +75,7 @@ export default function Header() {
         <Drawer.Root
           open={menuOpen}
           onOpenChange={(e) => setMenuOpen(e.open)}
-          placement="top"
+          placement="end"
         >
           <Drawer.Trigger asChild>
             <IconButton
@@ -90,7 +91,7 @@ export default function Header() {
             </IconButton>
           </Drawer.Trigger>
           <Portal>
-            <Drawer.Positioner pt="3em">
+            <Drawer.Positioner pl="0.5em" pr="0.5em">
               <Drawer.Content bg="primary">
                 <Drawer.Body mt="2em">
                   <VStack gap={6} align="center">

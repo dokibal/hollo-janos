@@ -4,7 +4,7 @@ const config = defineConfig({
   theme: {
     tokens: {
       colors: {
-        primary: { value: "#0A2540" },
+        primary: { value: "#023e8a" },
         accent: { value: "#FF7A00" },
         secondary: { value: "#6C757D" },
         background: { value: "#F5F5F5" },
