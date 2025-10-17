@@ -27,11 +27,7 @@ export default function Form() {
     console.log(`Values: ${data}`);
     fetch("./.netlify/functions/sendEmail", {
       method: "POST",
-      body: JSON.stringify({
-        subscriberName: "subscriber",
-        subscriberEmail: "email",
-        inviteeEmail: "info@netlify.com",
-      }),
+      body: JSON.stringify(data),
     });
   };
 
