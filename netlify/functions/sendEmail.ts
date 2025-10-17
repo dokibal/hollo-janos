@@ -1,7 +1,9 @@
-import type { Handler } from "@netlify/functions";
+import type { Handler, HandlerEvent } from "@netlify/functions";
 import { sendEmail } from "@netlify/emails";
+import { Quotation } from "../../app/quotation";
+import { email } from "../../app/constants";
 
-const handler: Handler = async function (event) {
+const handler: Handler = async function (event: HandlerEvent) {
   if (event.body === null) {
     return {
       statusCode: 400,
@@ -9,25 +11,19 @@ const handler: Handler = async function (event) {
     };
   }
 
-  const requestBody = JSON.parse(event.body) as {
-    subscriberName: string;
-    subscriberEmail: string;
-    inviteeEmail: string;
-  };
-
-  console.log(`body: ${JSON.stringify(requestBody)}`);
+  const quotation: Quotation = JSON.parse(event.body) as Quotation;
 
   await sendEmail({
-    from: "info@hollo-vill.hu",
-    to: "doktor.balazs1@gmail.com",
+    from: email,
+    to: quotation.email,
+    subject: "Árajánlat",
     template: "quotation_feedback",
-    subject: "New email",
-    parameters: { name: "valami" },
+    parameters: quotation,
   });
 
   return {
     statusCode: 200,
-    body: JSON.stringify("Subscribe email sent!"),
+    body: JSON.stringify("Email successfully sent!"),
   };
 };
 
