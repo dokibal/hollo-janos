@@ -12,6 +12,8 @@
     "@chakra-ui/react": "^3.27.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@netlify/emails": "^1.1.0",
+    "@netlify/functions": "^5.0.0",
     "framer-motion": "^12.23.22",
     "next": "15.5.3",
     "next-themes": "^0.4.6",

@@ -25,6 +25,14 @@ export default function Form() {
 
   const onSubmit: SubmitHandler<Quotation> = (data) => {
     console.log(`Values: ${data}`);
+    fetch("./.netlify/functions/sendEmail", {
+      method: "POST",
+      body: JSON.stringify({
+        subscriberName: "subscriber",
+        subscriberEmail: "email",
+        inviteeEmail: "info@netlify.com",
+      }),
+    });
   };
 
   return (
