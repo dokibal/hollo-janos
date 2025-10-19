@@ -2,6 +2,7 @@ import {
   Field,
   Portal,
   Select,
+  Text,
   Textarea,
   VStack,
   createListCollection,
@@ -20,18 +21,23 @@ export default function Form() {
   const {
     handleSubmit,
     register,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitted },
   } = useForm<Quotation>();
 
   const onSubmit: SubmitHandler<Quotation> = (data) => {
-    console.log(`Values: ${data}`);
     fetch("./.netlify/functions/sendEmail", {
       method: "POST",
       body: JSON.stringify(data),
     });
   };
 
-  return (
+  return isSubmitted ? (
+    <Text fontSize="2xl">
+      ✅ Árajánlatkérés sikeresen elküldve! Köszönjük, hogy megkeresett
+      bennünket. Hamarosan felvesszük Önnel a kapcsolatot a megadott
+      elérhetőségek egyikén.
+    </Text>
+  ) : (
     <form onSubmit={handleSubmit(onSubmit)}>
       <VStack>
         <Field.Root invalid={Boolean(errors.name)}>
@@ -131,7 +137,7 @@ export default function Form() {
             {errors.message && errors.message.message}
           </Field.ErrorText>
         </Field.Root>
-        <Button>Beküldés</Button>
+        <Button disabled={isSubmitting}>Beküldés</Button>
       </VStack>
     </form>
   );

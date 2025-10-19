@@ -1,34 +1,57 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="../styles.css" />
-  </head>
-  <body>
-    <div class="content-container">
+  <body
+    style="
+      font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 0 auto;
+    "
+  >
+    <div
+      style="background-color: white; display: inline-block; text-align: left"
+    >
       <h2>Új árajánlatkérés érkezett a weboldalról!</h2>
       <p>Az ügyfél adatai:</p>
-      <div class="fields-container">
-        <div class="field-container">
-          <strong class="field-title">Név:</strong>
+      <div style="margin-top: 2em; margin-bottom: 2em">
+        <div style="display: flex; flex-direction: row">
+          <strong
+            style="display: flex; align-items: center; padding-right: 0.5em"
+            >Név:</strong
+          >
           <p>{{name}}</p>
         </div>
-        <div class="field-container">
-          <strong class="field-title">E-mail cím:</strong>
+        <div style="display: flex; flex-direction: row">
+          <strong
+            style="display: flex; align-items: center; padding-right: 0.5em"
+            >E-mail cím:</strong
+          >
           <p>{{email}}</p>
         </div>
-        <div class="field-container">
-          <strong class="field-title"> Telefonszám:</strong>
+        <div style="display: flex; flex-direction: row">
+          <strong
+            style="display: flex; align-items: center; padding-right: 0.5em"
+          >
+            Telefonszám:</strong
+          >
           <p>{{phoneNumber}}</p>
         </div>
-        <div class="field-container">
-          <strong class="field-title">Helyszín:</strong>
+        <div style="display: flex; flex-direction: row">
+          <strong
+            style="display: flex; align-items: center; padding-right: 0.5em"
+            >Helyszín:</strong
+          >
           <p>{{location}}</p>
         </div>
-        <div class="field-container">
-          <strong class="field-title">Leírás:</strong>
+        <div style="display: flex; flex-direction: row">
+          <strong
+            style="display: flex; align-items: center; padding-right: 0.5em"
+            >Leírás:</strong
+          >
           <p>{{message}}</p>
         </div>
-        <div class="field-container">
-          <strong class="field-title">Dátum:</strong>
+        <div style="display: flex; flex-direction: row">
+          <strong
+            style="display: flex; align-items: center; padding-right: 0.5em"
+            >Dátum:</strong
+          >
           <p>{{requestDate}}</p>
         </div>
       </div>
