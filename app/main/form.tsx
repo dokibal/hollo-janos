@@ -12,6 +12,7 @@ import { Input } from "../components/input";
 import { Button } from "../components/button";
 import { locations } from "../locations";
 import { Quotation } from "../quotation";
+import Link from "next/link";
 
 const townCollection = createListCollection({
   items: locations.map((t) => ({ label: t, value: t })),
@@ -137,6 +138,10 @@ export default function Form() {
             {errors.message && errors.message.message}
           </Field.ErrorText>
         </Field.Root>
+        <Text>
+          Az űrlap elküldésével elfogadja az&nbsp;
+          <Link href="privacy-policy">Adatkezelési tájékoztatónkat</Link>
+        </Text>
         <Button disabled={isSubmitting}>{`Küldés${
           isSubmitting ? "..." : ""
         }`}</Button>

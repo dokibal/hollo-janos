@@ -1,4 +1,3 @@
-import { Link } from "react-scroll";
 import {
   Flex,
   Link as ChakraLink,
@@ -12,9 +11,10 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { phoneNumberLink } from "../constants";
+import { companyName, phoneNumberLink } from "../constants";
 import { useState } from "react";
-import { Button } from "../components/button";
+import { Button } from "./button";
+import Link from "next/link";
 
 type NavItem = {
   to: string;
@@ -23,9 +23,9 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { to: "", title: "Rólunk", icon: "ℹ️" },
-  { to: "services", title: "Szolgáltatások", icon: "🔧" },
-  { to: "contact", title: "Kapcsolat", icon: "📞" },
+  { to: "/#about", title: "Rólunk", icon: "ℹ️" },
+  { to: "/#services", title: "Szolgáltatások", icon: "🔧" },
+  { to: "/#contact", title: "Kapcsolat", icon: "📞" },
 ];
 
 export default function Header() {
@@ -44,23 +44,18 @@ export default function Header() {
       zIndex="1000"
     >
       <Flex alignItems="center" w="100%">
-        <Link to="" smooth={true} duration={500}>
+        <Link href="">
           <HStack>
             <Box fontWeight="bold" cursor="pointer">
               ⚡
             </Box>
-            <Heading color="primary">Holló Vill</Heading>
+            <Heading color="primary">{companyName}</Heading>
           </HStack>
         </Link>
 
-        <HStack
-          justify="center"
-          gap={6}
-          ml="auto"
-          display={{ base: "none", md: "flex" }}
-        >
+        <Flex display={{ base: "none", md: "flex" }} gap={4} ml="auto">
           {navItems.map((item) => (
-            <Link to={item.to} smooth={true} duration={500}>
+            <Link href={item.to}>
               <ChakraLink
                 background="white"
                 color="secondary"
@@ -70,7 +65,7 @@ export default function Header() {
               </ChakraLink>
             </Link>
           ))}
-        </HStack>
+        </Flex>
 
         <Drawer.Root
           open={menuOpen}
@@ -98,12 +93,7 @@ export default function Header() {
                     {navItems.map((item) => (
                       <HStack>
                         <Box as="span">{item.icon}</Box>
-                        <Link
-                          to={item.to}
-                          smooth={true}
-                          duration={500}
-                          onClick={() => setMenuOpen(false)}
-                        >
+                        <Link href={item.to} onClick={() => setMenuOpen(false)}>
                           <ChakraLink cursor="pointer" color="white">
                             {item.title}
                           </ChakraLink>

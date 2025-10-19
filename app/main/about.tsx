@@ -11,11 +11,10 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { Element } from "react-scroll";
 
 export default function About() {
   return (
-    <Element name="">
+    <section id="about">
       <Box
         minH="100vh"
         p="2em"
@@ -72,6 +71,6 @@ export default function About() {
           </GridItem>
         </SimpleGrid>
       </Box>
-    </Element>
+    </section>
   );
 }

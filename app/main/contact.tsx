@@ -8,13 +8,12 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { Element } from "react-scroll";
 import { email, emailLink, phoneNumber, phoneNumberLink } from "../constants";
 import Form from "./form";
 
 export default function Contact() {
   return (
-    <Element name="contact">
+    <section id="contact">
       <Box
         minH={{ base: "auto", md: "100vh" }}
         p="2em"
@@ -58,6 +57,6 @@ export default function Contact() {
           </GridItem>
         </SimpleGrid>
       </Box>
-    </Element>
+    </section>
   );
 }

@@ -7,7 +7,6 @@ import {
   List,
   SimpleGrid,
 } from "@chakra-ui/react";
-import { Element } from "react-scroll";
 
 const personal: string[] = [
   "Új elektromos hálózat kiépítése családi házakban, lakásokban",
@@ -61,7 +60,7 @@ export const ServiceCard = ({ title, content }: Readonly<ServiceCardProps>) => {
 
 export default function Services() {
   return (
-    <Element name="services">
+    <section id="services">
       <Box minH="100vh" bg="#F8F9FA" p="2em">
         <Heading marginBottom="2em">Szolgáltatások</Heading>
         <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>
@@ -79,6 +78,6 @@ export default function Services() {
           </GridItem>
         </SimpleGrid>
       </Box>
-    </Element>
+    </section>
   );
 }
