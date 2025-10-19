@@ -3,5 +3,5 @@ export type Quotation = {
   email: string;
   phoneNumber?: string;
   location: string;
-  description: string;
+  message: string;
 };

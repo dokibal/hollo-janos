@@ -117,7 +117,7 @@ export default function Form() {
             {errors.location && errors.location.message}
           </Field.ErrorText>
         </Field.Root>
-        <Field.Root invalid={Boolean(errors.description)}>
+        <Field.Root invalid={Boolean(errors.message)}>
           <Field.Label>
             Leírás <Field.RequiredIndicator />
           </Field.Label>
@@ -127,14 +127,14 @@ export default function Form() {
             focusRingColor="accent"
             borderRadius="0.25em"
             placeholder="Add meg: munkavégzés helye, mit kell csinálni, mikorra kell, stb."
-            id="description"
-            {...register("description", {
+            id="message"
+            {...register("message", {
               required: "Az üzenet megadása kötelező",
             })}
           />
           <Field.HelperText>Maximum 500 karakter</Field.HelperText>
           <Field.ErrorText>
-            {errors.description && errors.description.message}
+            {errors.message && errors.message.message}
           </Field.ErrorText>
         </Field.Root>
         <Button disabled={isSubmitting}>{`Küldés${
