@@ -10,6 +10,8 @@ import {
 } from "../../app/constants";
 import { FeedbackEmailInput, NotificationEmailInput } from "@/app/email-input";
 
+const numTo2DigitString = (num: number): string => (num < 10 ? "0" : "" + num);
+
 const handler: Handler = async function (event: HandlerEvent) {
   if (event.body === null) {
     return {
@@ -36,9 +38,14 @@ const handler: Handler = async function (event: HandlerEvent) {
     parameters: feedbackEmailInput,
   });
 
+  const dateNow: Date = new Date();
   const notificationEmailInput: NotificationEmailInput = {
     ...quotation,
-    requestDate: new Date(),
+    requestDate: `${dateNow.getFullYear()}. ${
+      dateNow.getMonth() + 1
+    }. ${dateNow.getDate()}. ${numTo2DigitString(
+      dateNow.getHours()
+    )}:${numTo2DigitString(dateNow.getMinutes())}`,
   };
   await sendEmail({
     from: email,

@@ -24,8 +24,8 @@ export default function Form() {
     formState: { errors, isSubmitting, isSubmitted },
   } = useForm<Quotation>();
 
-  const onSubmit: SubmitHandler<Quotation> = (data) => {
-    fetch("./.netlify/functions/sendEmail", {
+  const onSubmit: SubmitHandler<Quotation> = async (data) => {
+    await fetch("./.netlify/functions/sendEmail", {
       method: "POST",
       body: JSON.stringify(data),
     });
