@@ -5,3 +5,5 @@ export const phoneNumberLink: string = `tel:${phoneNumber.replace(" ", "")}`;
 store an email address for the website. */
 export const email: string = "info@hollo-vill.hu";
 export const emailLink: string = `mailto:${email}`;
+export const companyName: string = "Holló Vill";
+export const siteLink: string = "https://hollo-vill.hu";

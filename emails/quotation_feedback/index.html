@@ -6,13 +6,42 @@
     "
   >
     <div
-      style="background-color: white; display: inline-block; text-align: center"
+      style="background-color: white; display: inline-block; text-align: left"
     >
-      <h1>Kedves {{name}},</h1>
+      <h1>Kedves {{name}}!</h1>
       <p>
-        Köszönjük a megkeresést! Az adatok: {{email}} {{phoneNumber}}
-        {{location}} {{message}}
+        Köszönjük, hogy felvette velünk a kapcsolatot és árajánlatot kért
+        villanyszerelési munkára.
       </p>
+      <p>Az Ön által megadott adatok:</p>
+      <div>
+        <strong>📍 Helyszín:</strong>
+        <p>{{location}}</p>
+      </div>
+      <div>
+        <strong> 📞 Telefonszám:</strong>
+        <p>{{phoneNumber}}</p>
+      </div>
+      <div>
+        <strong>✉️ E-mail cím:</strong>
+        <p>{{email}}</p>
+      </div>
+      <div>
+        <strong>🛠 Leírás:</strong>
+        <p>{{message}}</p>
+      </div>
+      <p>
+        Kollégánk hamarosan felveszi Önnel a kapcsolatot a megadott
+        elérhetőségek egyikén, hogy egyeztessük a részleteket és pontos
+        árajánlatot adhassunk. Ha időközben módosítaná a kérését, kérjük,
+        jelezze válaszüzenetben.
+      </p>
+      <p>Üdvözlettel,</p>
+      <strong>Holló Vill</strong>
+      <a href="{{siteLink}}" style="display: block">hollo-vill.hu</a>
+      <a href="{{companyPhoneNumberLink}}" style="display: block"
+        >{{companyPhoneNumber}}</a
+      >
     </div>
   </body>
 </html>
