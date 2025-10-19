@@ -1,43 +1,43 @@
 <html>
-  <body
-    style="
-      font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-      margin: 0 auto;
-    "
-  >
-    <div
-      style="background-color: white; display: inline-block; text-align: left"
-    >
+  <head>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="content-container">
       <h1>Kedves {{name}}!</h1>
       <p>
         Köszönjük, hogy felvette velünk a kapcsolatot és árajánlatot kért
         villanyszerelési munkára.
       </p>
       <p>Az Ön által megadott adatok:</p>
-      <div>
-        <strong>📍 Helyszín:</strong>
-        <p>{{location}}</p>
-      </div>
-      <div>
-        <strong> 📞 Telefonszám:</strong>
-        <p>{{phoneNumber}}</p>
-      </div>
-      <div>
-        <strong>✉️ E-mail cím:</strong>
-        <p>{{email}}</p>
-      </div>
-      <div>
-        <strong>🛠 Leírás:</strong>
-        <p>{{message}}</p>
+      <div class="fields-container">
+        <div class="field-container">
+          <strong class="field-title">📍 Helyszín:</strong>
+          <p>{{location}}</p>
+        </div>
+        <div class="field-container">
+          <strong class="field-title"> 📞 Telefonszám:</strong>
+          <p>{{phoneNumber}}</p>
+        </div>
+        <div class="field-container">
+          <strong class="field-title">✉️ E-mail cím:</strong>
+          <p>{{email}}</p>
+        </div>
+        <div class="field-container">
+          <strong class="field-title">🛠 Leírás:</strong>
+          <p>{{message}}</p>
+        </div>
       </div>
       <p>
         Kollégánk hamarosan felveszi Önnel a kapcsolatot a megadott
         elérhetőségek egyikén, hogy egyeztessük a részleteket és pontos
-        árajánlatot adhassunk. Ha időközben módosítaná a kérését, kérjük,
-        jelezze válaszüzenetben.
+        árajánlatot adhassunk.
       </p>
+      <p>Ha időközben módosítaná a kérését, kérjük, jelezze válaszüzenetben.</p>
+      <br />
       <p>Üdvözlettel,</p>
-      <strong>Holló Vill</strong>
+      <div>{{ownerName}}</div>
+      <strong>{{companyName}}</strong>
       <a href="{{siteLink}}" style="display: block">hollo-vill.hu</a>
       <a href="{{companyPhoneNumberLink}}" style="display: block"
         >{{companyPhoneNumber}}</a

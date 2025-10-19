@@ -23,6 +23,8 @@ const handler: Handler = async function (event: HandlerEvent) {
   const feedbackEmailInput: FeedbackEmailInput = {
     ...quotation,
     siteLink: siteLink,
+    companyName: "Holló Vill",
+    ownerName: "Holló János",
     companyPhoneNumber: phoneNumber,
     companyPhoneNumberLink: phoneNumberLink,
   };
