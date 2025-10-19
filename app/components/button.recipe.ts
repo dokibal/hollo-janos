@@ -10,5 +10,12 @@ export const buttonRecipe = defineRecipe({
     borderRadius: "0.25em",
     padding: "0.5em",
     cursor: "pointer",
+
+    _disabled: {
+      bg: "gray.400",
+      color: "gray.700",
+      cursor: "not-allowed",
+      _hover: { bg: "gray.400" },
+    },
   },
 });

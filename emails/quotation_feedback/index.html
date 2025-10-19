@@ -15,50 +15,49 @@
       </p>
       <p>Az Ön által megadott adatok:</p>
       <div style="margin-top: 2em; margin-bottom: 2em">
-        <div style="display: flex; flex-direction: row">
+        <div style="display: flex; flex-direction: row; margin-bottom: 0.5em">
           <strong
             style="display: flex; align-items: center; padding-right: 0.5em"
-            >📍 Helyszín:</strong
+            >📍&nbsp;Helyszín:</strong
           >
-          <p>{{location}}</p>
+          <div>{{location}}</div>
         </div>
-        <div style="display: flex; flex-direction: row">
+        <div style="display: flex; flex-direction: row; margin-bottom: 0.5em">
           <strong
             style="display: flex; align-items: center; padding-right: 0.5em"
           >
-            📞 Telefonszám:</strong
+            📞&nbsp;Telefonszám:</strong
           >
-          <p>{{phoneNumber}}</p>
+          <div>{{phoneNumber}}</div>
         </div>
-        <div style="display: flex; flex-direction: row">
+        <div style="display: flex; flex-direction: row; margin-bottom: 0.5em">
           <strong
             style="display: flex; align-items: center; padding-right: 0.5em"
-            >✉️ E-mail cím:</strong
+            >✉️&nbsp;E-mail:</strong
           >
-          <p>{{email}}</p>
+          <div>{{email}}</div>
         </div>
-        <div style="display: flex; flex-direction: row">
+        <div style="display: flex; flex-direction: row; margin-bottom: 0.5em">
           <strong
             style="display: flex; align-items: center; padding-right: 0.5em"
-            >🛠 Leírás:</strong
+            >🛠&nbsp;Leírás:</strong
           >
-          <p>{{message}}</p>
+          <div>{{description}}</div>
         </div>
       </div>
       <p>
         Kollégánk hamarosan felveszi Önnel a kapcsolatot a megadott
         elérhetőségek egyikén, hogy egyeztessük a részleteket és pontos
-        árajánlatot adhassunk.
+        árajánlatot adhassunk.<br />
+        Ha időközben módosítaná a kérését, kérjük, jelezze válaszüzenetben.
       </p>
-      <p>Ha időközben módosítaná a kérését, kérjük, jelezze válaszüzenetben.</p>
-      <br />
-      <p>Üdvözlettel,</p>
-      <div>{{ownerName}}</div>
-      <strong>{{companyName}}</strong>
-      <a href="{{siteLink}}" style="display: block">hollo-vill.hu</a>
-      <a href="{{companyPhoneNumberLink}}" style="display: block"
-        >{{companyPhoneNumber}}</a
-      >
+      <p>
+        Üdvözlettel,<br /><br />
+        <strong>{{ownerName}}</strong><br />
+        {{companyName}}<br />
+        <a href="{{siteLink}}" target="_blank">{{siteLink}}</a><br />
+        <a href="{{companyPhoneNumberLink}}">{{companyPhoneNumber}}</a>
+      </p>
     </div>
   </body>
 </html>

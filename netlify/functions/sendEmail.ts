@@ -10,7 +10,7 @@ import {
 } from "../../app/constants";
 import { FeedbackEmailInput, NotificationEmailInput } from "@/app/email-input";
 
-const numTo2DigitString = (num: number): string => (num < 10 ? "0" : "" + num);
+const numTo2DigitString = (num: number): string => (num < 10 ? "0" : "") + num;
 
 const handler: Handler = async function (event: HandlerEvent) {
   if (event.body === null) {
@@ -57,7 +57,7 @@ const handler: Handler = async function (event: HandlerEvent) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify("Email successfully sent!"),
+    body: JSON.stringify("E-mail successfully sent!"),
   };
 };
 

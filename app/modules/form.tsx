@@ -21,7 +21,7 @@ export default function Form() {
   const {
     handleSubmit,
     register,
-    formState: { errors, isSubmitting, isSubmitted },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<Quotation>();
 
   const onSubmit: SubmitHandler<Quotation> = async (data) => {
@@ -31,7 +31,7 @@ export default function Form() {
     });
   };
 
-  return isSubmitted ? (
+  return isSubmitSuccessful ? (
     <Text fontSize="2xl">
       ✅ Árajánlatkérés sikeresen elküldve! Köszönjük, hogy megkeresett
       bennünket. Hamarosan felvesszük Önnel a kapcsolatot a megadott
@@ -45,7 +45,7 @@ export default function Form() {
             Név <Field.RequiredIndicator />
           </Field.Label>
           <Input
-            placeholder="Gipsz Jakab"
+            placeholder="Kovács János"
             id="name"
             {...register("name", { required: "A név megadása kötelező" })}
           />
@@ -55,10 +55,10 @@ export default function Form() {
         </Field.Root>
         <Field.Root invalid={Boolean(errors.email)}>
           <Field.Label>
-            Email <Field.RequiredIndicator />
+            E-mail <Field.RequiredIndicator />
           </Field.Label>
           <Input
-            placeholder="gipszjakab@gmail.com"
+            placeholder="kovacsjanos@gmail.com"
             id="email"
             {...register("email", {
               required: "Az email cím megadása kötelező",
@@ -117,9 +117,9 @@ export default function Form() {
             {errors.location && errors.location.message}
           </Field.ErrorText>
         </Field.Root>
-        <Field.Root invalid={Boolean(errors.message)}>
+        <Field.Root invalid={Boolean(errors.description)}>
           <Field.Label>
-            Üzenet <Field.RequiredIndicator />
+            Leírás <Field.RequiredIndicator />
           </Field.Label>
           <Textarea
             maxLength={500}
@@ -127,17 +127,19 @@ export default function Form() {
             focusRingColor="accent"
             borderRadius="0.25em"
             placeholder="Add meg: munkavégzés helye, mit kell csinálni, mikorra kell, stb."
-            id="message"
-            {...register("message", {
+            id="description"
+            {...register("description", {
               required: "Az üzenet megadása kötelező",
             })}
           />
           <Field.HelperText>Maximum 500 karakter</Field.HelperText>
           <Field.ErrorText>
-            {errors.message && errors.message.message}
+            {errors.description && errors.description.message}
           </Field.ErrorText>
         </Field.Root>
-        <Button disabled={isSubmitting}>Beküldés</Button>
+        <Button disabled={isSubmitting}>{`Küldés${
+          isSubmitting ? "..." : ""
+        }`}</Button>
       </VStack>
     </form>
   );
