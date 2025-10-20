@@ -1,29 +1,25 @@
 import {
   Box,
   Flex,
-  Grid,
   GridItem,
   Heading,
-  HStack,
   Image,
   List,
   SimpleGrid,
   Text,
-  VStack,
 } from "@chakra-ui/react";
 
 export default function About() {
   return (
     <section id="about">
       <Box
-        minH="100vh"
+        minH={{ base: "auto", md: "100vh" }}
         p="2em"
         bg="white"
         color="secondary"
         display="flex"
         alignItems="center"
         justifyContent="center"
-        flexDirection="column"
       >
         <SimpleGrid columns={{ base: 1, md: 2 }}>
           <GridItem

@@ -38,18 +38,16 @@ const handler: Handler = async function (event: HandlerEvent) {
     parameters: feedbackEmailInput,
   });
 
-  const dateNow: Date = new Date();
+  const dateNow: string = new Date().toLocaleString("hu", {
+    timeZone: "Europe/Budapest",
+  });
   const notificationEmailInput: NotificationEmailInput = {
     ...quotation,
-    requestDate: `${dateNow.getFullYear()}. ${
-      dateNow.getMonth() + 1
-    }. ${dateNow.getDate()}. ${numTo2DigitString(
-      dateNow.getHours()
-    )}:${numTo2DigitString(dateNow.getMinutes())}`,
+    requestDate: dateNow,
   };
   await sendEmail({
     from: email,
-    to: quotation.email,
+    to: email,
     subject: "Új árajánlatkérés érkezett a weboldalról",
     template: "quotation_notification",
     parameters: notificationEmailInput,
