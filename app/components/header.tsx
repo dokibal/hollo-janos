@@ -44,7 +44,7 @@ export default function Header() {
       zIndex="1000"
     >
       <Flex alignItems="center" w="100%">
-        <Link href="">
+        <Link href="/">
           <HStack>
             <Box fontWeight="bold" cursor="pointer">
               ⚡
@@ -56,13 +56,21 @@ export default function Header() {
         <Flex display={{ base: "none", md: "flex" }} gap={4} ml="auto">
           {navItems.map((item) => (
             <Link href={item.to}>
-              <ChakraLink
+              <Button
                 background="white"
                 color="secondary"
-                _hover={{ color: "primary" }}
+                borderBottom="hidden 1px"
+                _active={{ color: "primary" }}
+                _hover={{
+                  color: "primary",
+                  textDecoration: "none",
+                  borderBottomColor: "secondary",
+                  borderRadius: "0",
+                  borderBottom: "solid 1px",
+                }}
               >
                 {item.title}
-              </ChakraLink>
+              </Button>
             </Link>
           ))}
         </Flex>

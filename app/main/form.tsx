@@ -1,4 +1,5 @@
 import {
+  Box,
   Field,
   Portal,
   Select,
@@ -138,7 +139,7 @@ export default function Form() {
             {errors.message && errors.message.message}
           </Field.ErrorText>
         </Field.Root>
-        <Text>
+        <Text fontSize="sm" w="100%">
           Az űrlap elküldésével elfogadja az&nbsp;
           <Link href="privacy-policy">Adatkezelési tájékoztatónkat</Link>
         </Text>
