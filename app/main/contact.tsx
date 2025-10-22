@@ -17,7 +17,6 @@ export default function Contact() {
       <Box
         minH={{ base: "auto", md: "100vh" }}
         p="2em"
-        bg="white"
         color="secondary"
         overflow="auto"
       >

@@ -87,17 +87,19 @@ export default function Form() {
             {...register("location", {
               required: "A helyszín megadása kötelező",
             })}
+            colorPalette="red"
+            borderColor="red"
           >
             <Select.HiddenSelect />
             <Select.Label>
               Helyszín <Field.RequiredIndicator />
             </Select.Label>
             <Select.Control>
-              <Select.Trigger>
+              <Select.Trigger borderColor="primary">
                 <Select.ValueText placeholder="Tatabánya" />
               </Select.Trigger>
               <Select.IndicatorGroup>
-                <Select.Indicator />
+                <Select.Indicator color="primary" />
               </Select.IndicatorGroup>
             </Select.Control>
             <Portal>
@@ -128,6 +130,7 @@ export default function Form() {
             rows={5}
             focusRingColor="accent"
             borderRadius="0.25em"
+            borderColor="primary"
             placeholder="Add meg: munkavégzés helye, mit kell csinálni, mikorra kell, stb."
             id="message"
             {...register("message", {

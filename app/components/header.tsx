@@ -119,7 +119,11 @@ export default function Header() {
                   </VStack>
                 </Drawer.Body>
                 <Drawer.CloseTrigger asChild>
-                  <CloseButton size="sm" />
+                  <CloseButton
+                    size="sm"
+                    color="white"
+                    _hover={{ background: "accent" }}
+                  />
                 </Drawer.CloseTrigger>
               </Drawer.Content>
             </Drawer.Positioner>

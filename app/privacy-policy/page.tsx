@@ -14,7 +14,7 @@ const PrivacyPolicySection = ({
   children,
 }: Readonly<PrivacyPolicySectionProps>) => {
   return (
-    <Box pt="0.5em" pb="0.5em">
+    <Box pt="0.5em" pb="0.5em" textAlign="justify">
       <Heading size="md">{`${index}. ${title}`}</Heading>
       {children}
     </Box>

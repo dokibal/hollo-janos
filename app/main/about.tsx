@@ -15,7 +15,6 @@ export default function About() {
       <Box
         minH={{ base: "auto", md: "100vh" }}
         p="2em"
-        bg="white"
         color="secondary"
         display="flex"
         alignItems="center"
