@@ -9,6 +9,7 @@ import {
   HStack,
   VStack,
   Heading,
+  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { companyName, phoneNumberLink } from "../constants";
@@ -36,6 +37,7 @@ export default function Header() {
       bg="white"
       color="white"
       p="0.5em"
+      height="3em"
       width="100%"
       boxShadow="sm"
       position="fixed"
@@ -43,15 +45,11 @@ export default function Header() {
       left="0"
       zIndex="1000"
     >
-      <Flex alignItems="center" w="100%">
-        <Link href="/">
-          <HStack>
-            <Box fontWeight="bold" cursor="pointer">
-              ⚡
-            </Box>
-            <Heading color="primary">{companyName}</Heading>
-          </HStack>
-        </Link>
+      <Flex alignItems="center" height="100%" w="100%">
+        <HStack height="100%" marginLeft="0.5em" spaceX="0.5em">
+          <Image src="company_logo.png" height="100%" width="auto" />
+          <Heading color="primary">{companyName}</Heading>
+        </HStack>
 
         <Flex display={{ base: "none", md: "flex" }} gap={4} ml="auto">
           {navItems.map((item) => (
