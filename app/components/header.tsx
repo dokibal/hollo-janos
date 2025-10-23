@@ -4,6 +4,7 @@ import {
   Box,
   Drawer,
   CloseButton,
+  Button,
   Portal,
   IconButton,
   HStack,
@@ -14,7 +15,7 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { companyName, phoneNumberLink } from "../constants";
 import { useState } from "react";
-import { Button } from "./button";
+import { Button as CustomButton } from "./button";
 import Link from "next/link";
 
 type NavItem = {
@@ -85,7 +86,7 @@ export default function Header() {
               display={{ base: "flex", md: "none" }}
               bg="primary"
               color="white"
-              _hover={{ bg: "accent" }}
+              _hover={{ bg: "accent", color: "primary" }}
               ml="auto"
             >
               <HamburgerIcon />
@@ -100,7 +101,13 @@ export default function Header() {
                       <HStack>
                         <Box as="span">{item.icon}</Box>
                         <Link href={item.to} onClick={() => setMenuOpen(false)}>
-                          <ChakraLink cursor="pointer" color="white">
+                          <ChakraLink
+                            cursor="pointer"
+                            color="white"
+                            _hover={{ color: "accent" }}
+                            textDecoration="none"
+                            fontSize="xl"
+                          >
                             {item.title}
                           </ChakraLink>
                         </Link>
@@ -111,9 +118,7 @@ export default function Header() {
                         href={phoneNumberLink}
                         _hover={{ textDecoration: "none" }}
                       >
-                        <Button bg="accent" color="white">
-                          Hívjon most
-                        </Button>
+                        <CustomButton>Hívjon most</CustomButton>
                       </ChakraLink>
                     </Flex>
                   </VStack>
