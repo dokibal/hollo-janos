@@ -47,7 +47,12 @@ export default function Header() {
       zIndex="1000"
     >
       <Flex alignItems="center" height="100%" w="100%">
-        <HStack height="100%" marginLeft="0.5em" spaceX="0.5em">
+        <HStack
+          height="100%"
+          marginLeft="0.5em"
+          spaceX="0.5em"
+          cursor="pointer"
+        >
           <Image src="company_logo.png" height="100%" width="auto" />
           <Heading color="primary">{companyName}</Heading>
         </HStack>

@@ -39,7 +39,8 @@ export default function PrivacyPolicy() {
         <PrivacyPolicySection index={1} title="Az adatkezelő adatai">
           <Text>
             Cégnév: Holló János e.v. <br />
-            Székhely: 2851 Környe November utca <br />
+            Székhely: 2851 Környe November utca 20.
+            <br />
             E-mail: {email} <br />
             Telefon: {phoneNumber}
           </Text>
