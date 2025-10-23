@@ -62,7 +62,7 @@ export const ServiceCard = ({ title, content }: Readonly<ServiceCardProps>) => {
 export default function Services() {
   return (
     <section id="services">
-      <Background bg="rgba(255, 209, 0, 0.5)">
+      <Background bg="rgba(255, 209, 0, 0.4)">
         <Box minH="100vh" p="2em">
           <Heading marginBottom="2em">Szolgáltatások</Heading>
           <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>

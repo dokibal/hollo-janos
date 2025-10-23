@@ -13,7 +13,7 @@ import { Background } from "./background";
 export default function About() {
   return (
     <section id="about">
-      <Background bg="rgba(0, 0, 0, 0.5)">
+      <Background bg="rgba(0, 0, 0, 0.3)">
         <Box
           minH={{ base: "auto", md: "100vh" }}
           p="2em"
