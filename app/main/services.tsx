@@ -7,6 +7,7 @@ import {
   List,
   SimpleGrid,
 } from "@chakra-ui/react";
+import { Background } from "./background";
 
 const personal: string[] = [
   "Új elektromos hálózat kiépítése családi házakban, lakásokban",
@@ -61,23 +62,25 @@ export const ServiceCard = ({ title, content }: Readonly<ServiceCardProps>) => {
 export default function Services() {
   return (
     <section id="services">
-      <Box minH="100vh" p="2em">
-        <Heading marginBottom="2em">Szolgáltatások</Heading>
-        <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>
-          <GridItem>
-            <ServiceCard
-              title="Lakossági/céges villanyszerelés"
-              content={personal}
-            />
-          </GridItem>
-          <GridItem>
-            <ServiceCard
-              title="További kisipari/céges villanyszerelés"
-              content={business}
-            />
-          </GridItem>
-        </SimpleGrid>
-      </Box>
+      <Background bg="rgba(255, 209, 0, 0.5)">
+        <Box minH="100vh" p="2em">
+          <Heading marginBottom="2em">Szolgáltatások</Heading>
+          <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>
+            <GridItem>
+              <ServiceCard
+                title="Lakossági/céges villanyszerelés"
+                content={personal}
+              />
+            </GridItem>
+            <GridItem>
+              <ServiceCard
+                title="További kisipari/céges villanyszerelés"
+                content={business}
+              />
+            </GridItem>
+          </SimpleGrid>
+        </Box>
+      </Background>
     </section>
   );
 }

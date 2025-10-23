@@ -95,7 +95,11 @@ export default function Form() {
               Helyszín <Field.RequiredIndicator />
             </Select.Label>
             <Select.Control>
-              <Select.Trigger borderColor="primary">
+              <Select.Trigger
+                borderColor="primary"
+                _focus={{ borderColor: "accent" }}
+                backgroundColor="white"
+              >
                 <Select.ValueText placeholder="Tatabánya" />
               </Select.Trigger>
               <Select.IndicatorGroup>
@@ -129,9 +133,11 @@ export default function Form() {
             maxLength={500}
             rows={5}
             focusRingColor="accent"
+            _focus={{ borderColor: "accent" }}
             borderRadius="0.25em"
             borderColor="primary"
-            placeholder="Add meg: munkavégzés helye, mit kell csinálni, mikorra kell, stb."
+            backgroundColor="white"
+            placeholder="Kérjük, adja meg a munka részleteit..."
             id="message"
             {...register("message", {
               required: "Az üzenet megadása kötelező",
