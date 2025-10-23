@@ -16,7 +16,6 @@ export default function About() {
         minH={{ base: "auto", md: "100vh" }}
         p="2em"
         pt="4em"
-        color="secondary"
         display="flex"
         alignItems="center"
         justifyContent="center"

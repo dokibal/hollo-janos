@@ -38,17 +38,12 @@ type ServiceCardProps = {
 
 export const ServiceCard = ({ title, content }: Readonly<ServiceCardProps>) => {
   return (
-    <Card.Root
-      bg="primary"
-      borderColor="primary"
-      height="100%"
-      borderRadius="2em"
-    >
-      <Card.Header color="white">{title}</Card.Header>
+    <Card.Root bg="white" height="100%" borderRadius="2em" boxShadow="lg">
+      <Card.Header>{title}</Card.Header>
       <Card.Body>
         <List.Root>
           {content.map((c) => (
-            <List.Item color="white">{c}</List.Item>
+            <List.Item>{c}</List.Item>
           ))}
         </List.Root>
       </Card.Body>

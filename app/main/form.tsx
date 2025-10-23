@@ -1,6 +1,7 @@
 import {
   Box,
   Field,
+  Heading,
   Portal,
   Select,
   Text,
@@ -41,7 +42,14 @@ export default function Form() {
     </Text>
   ) : (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <VStack>
+      <VStack
+        bg="white"
+        borderRadius="2em"
+        width="100%"
+        padding="2em"
+        boxShadow="lg"
+      >
+        <Heading justifyContent="left">Küldjön árajánlatot nekünk!</Heading>
         <Field.Root invalid={Boolean(errors.name)}>
           <Field.Label>
             Név <Field.RequiredIndicator />
