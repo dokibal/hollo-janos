@@ -8,6 +8,7 @@ import { customSystem } from "./theme";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { companyName } from "./constants";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </ThemeProvider>
         </ChakraProvider>
       </body>
+      <GoogleAnalytics gaId="G-QBNRJVW5VH" />
     </html>
   );
 }
