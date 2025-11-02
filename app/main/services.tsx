@@ -3,9 +3,12 @@ import {
   Card,
   GridItem,
   Heading,
+  Icon,
   List,
+  Text,
   SimpleGrid,
 } from "@chakra-ui/react";
+import { MdBolt } from "react-icons/md";
 
 const personal: string[] = [
   "Új elektromos hálózat kiépítése családi házakban, lakásokban",
@@ -38,12 +41,26 @@ type ServiceCardProps = {
 
 export const ServiceCard = ({ title, content }: Readonly<ServiceCardProps>) => {
   return (
-    <Card.Root bg="white" height="100%" borderRadius="2em" boxShadow="lg">
-      <Card.Header>{title}</Card.Header>
+    <Card.Root
+      bg="white"
+      height="100%"
+      borderRadius="2em"
+      boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
+    >
+      <Card.Header fontSize="lg" fontWeight="semibold">
+        {title}
+      </Card.Header>
       <Card.Body>
-        <List.Root>
+        <List.Root variant="plain" gap="0.5em">
           {content.map((c) => (
-            <List.Item>{c}</List.Item>
+            <List.Item>
+              <List.Indicator>
+                <Icon size="lg" color="accent">
+                  <MdBolt />
+                </Icon>
+              </List.Indicator>
+              <Text _hover={{ color: "accent" }}>{c}</Text>
+            </List.Item>
           ))}
         </List.Root>
       </Card.Body>

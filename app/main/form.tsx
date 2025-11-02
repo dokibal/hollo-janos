@@ -1,4 +1,5 @@
 import {
+  Box,
   Field,
   Heading,
   Portal,
@@ -47,13 +48,20 @@ export default function Form() {
   ) : (
     <form onSubmit={handleSubmit(onSubmit)}>
       <VStack
-        bg="white"
+        bgColor="rgba(255, 255, 255, 0.5)"
         borderRadius="2em"
         width="100%"
         padding="2em"
-        boxShadow="lg"
+        boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
       >
-        <Heading justifyContent="left">Küldjön árajánlatot nekünk!</Heading>
+        <Box
+          display="flex"
+          justifyContent="left"
+          width="100%"
+          marginBottom="2em"
+        >
+          <Heading size="lg">Küldjön árajánlatot nekünk!</Heading>
+        </Box>
         <Field.Root invalid={Boolean(errors.name)}>
           <Field.Label>
             Név <RequiredIndicator />
@@ -171,7 +179,9 @@ export default function Form() {
         </Field.Root>
         <Text fontSize="sm" w="100%" mt="2em">
           Az űrlap elküldésével elfogadja az&nbsp;
-          <Link href="privacy-policy">Adatkezelési tájékoztatónkat</Link>
+          <Link href="privacy-policy" style={{ textDecoration: "underline" }}>
+            Adatkezelési tájékoztatónkat
+          </Link>
         </Text>
         <Button disabled={isSubmitting}>{`Küldés${
           isSubmitting ? "..." : ""

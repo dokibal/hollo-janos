@@ -17,7 +17,7 @@ export default function Page() {
           bgSize="200px"
           bgColor="white"
           bgBlendMode="multiply"
-          opacity={0.3}
+          opacity={0.25}
           zIndex={0}
         />
         <Box position="relative" zIndex={1}>
