@@ -48,7 +48,7 @@ export default function Form() {
   ) : (
     <form onSubmit={handleSubmit(onSubmit)}>
       <VStack
-        bgColor="rgba(255, 255, 255, 0.5)"
+        bgColor="rgba(255, 255, 255, 0.7)"
         borderRadius="2em"
         width="100%"
         padding="2em"
@@ -129,7 +129,7 @@ export default function Form() {
                 _focus={{ borderColor: "accent" }}
                 backgroundColor="white"
               >
-                <Select.ValueText placeholder="Tatabánya" />
+                <Select.ValueText />
               </Select.Trigger>
               <Select.IndicatorGroup>
                 <Select.Indicator color="primary" />

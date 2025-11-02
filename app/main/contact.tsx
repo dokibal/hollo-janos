@@ -32,13 +32,13 @@ export default function Contact() {
             <VStack
               display="flex"
               justifyContent="left"
-              bg="white"
+              bgColor="rgba(255, 255, 255, 0.7)"
               borderRadius="2em"
               width="100%"
               paddingTop="5em"
               paddingBottom="5em"
               boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
-              fontSize="xl"
+              fontSize={{ base: "lg", md: "xl" }}
               padding="2em 1em 2em 1em"
             >
               <Box display="flex" justifyContent="left" width="100%">
