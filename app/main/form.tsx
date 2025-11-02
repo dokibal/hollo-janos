@@ -1,5 +1,4 @@
 import {
-  Box,
   Field,
   Heading,
   Portal,
@@ -15,10 +14,13 @@ import { Button } from "../components/button";
 import { locations } from "../locations";
 import { Quotation } from "../quotation";
 import Link from "next/link";
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 const townCollection = createListCollection({
   items: locations.map((t) => ({ label: t, value: t })),
 });
+
+const RequiredIndicator = () => <span style={{ color: "red" }}>*</span>;
 
 export default function Form() {
   const {
@@ -33,6 +35,8 @@ export default function Form() {
       body: JSON.stringify(data),
     });
   };
+
+  const isValidEmail: RegExp = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   return isSubmitSuccessful ? (
     <Text fontSize="2xl">
@@ -52,7 +56,7 @@ export default function Form() {
         <Heading justifyContent="left">Küldjön árajánlatot nekünk!</Heading>
         <Field.Root invalid={Boolean(errors.name)}>
           <Field.Label>
-            Név <Field.RequiredIndicator />
+            Név <RequiredIndicator />
           </Field.Label>
           <Input
             placeholder="Kovács János"
@@ -65,28 +69,37 @@ export default function Form() {
         </Field.Root>
         <Field.Root invalid={Boolean(errors.email)}>
           <Field.Label>
-            E-mail <Field.RequiredIndicator />
+            E-mail <RequiredIndicator />
           </Field.Label>
           <Input
             placeholder="kovacsjanos@gmail.com"
             id="email"
             {...register("email", {
-              required: "Az email cím megadása kötelező",
+              required: "Az e-mail cím megadása kötelező",
+              validate: (value) =>
+                isValidEmail.test(value) || "Érvénytelen e-mail formátum",
             })}
           />
           <Field.ErrorText>
             {errors.email && errors.email.message}
           </Field.ErrorText>
         </Field.Root>
-        <Field.Root>
+        <Field.Root invalid={Boolean(errors.phoneNumber)}>
           <Field.Label>Telefonszám</Field.Label>
           <Input
             placeholder="+36201111111"
             id="phoneNumber"
             {...register("phoneNumber", {
               required: false,
+              validate: (value) =>
+                !value ||
+                isValidPhoneNumber(value) ||
+                "A telefonszám formátuma nem megfelelő (helyes formátum: +36201111111)",
             })}
           />
+          <Field.ErrorText>
+            {errors.phoneNumber && errors.phoneNumber.message}
+          </Field.ErrorText>
         </Field.Root>
         <Field.Root invalid={Boolean(errors.location)}>
           <Select.Root
@@ -100,7 +113,7 @@ export default function Form() {
           >
             <Select.HiddenSelect />
             <Select.Label>
-              Helyszín <Field.RequiredIndicator />
+              Helyszín <RequiredIndicator />
             </Select.Label>
             <Select.Control>
               <Select.Trigger
@@ -135,7 +148,7 @@ export default function Form() {
         </Field.Root>
         <Field.Root invalid={Boolean(errors.message)}>
           <Field.Label>
-            Leírás <Field.RequiredIndicator />
+            Leírás <RequiredIndicator />
           </Field.Label>
           <Textarea
             maxLength={500}
@@ -156,7 +169,7 @@ export default function Form() {
             {errors.message && errors.message.message}
           </Field.ErrorText>
         </Field.Root>
-        <Text fontSize="sm" w="100%">
+        <Text fontSize="sm" w="100%" mt="2em">
           Az űrlap elküldésével elfogadja az&nbsp;
           <Link href="privacy-policy">Adatkezelési tájékoztatónkat</Link>
         </Text>
