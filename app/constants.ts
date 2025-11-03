@@ -7,5 +7,6 @@ export const email: string = "info@hollo-vill.hu";
 export const emailLink: string = `mailto:${email}`;
 export const companyName: string = "Holló-Vill";
 export const siteLink: string = "https://hollo-vill.hu";
+export const facebook: string = "Holló-Vill Villanyszerelés";
 export const facebookLink: string =
   "https://www.facebook.com/profile.php?id=61581999308967";

@@ -4,13 +4,13 @@ import { Quotation } from "../../app/quotation";
 import {
   companyName,
   email,
+  facebook,
+  facebookLink,
   phoneNumber,
   phoneNumberLink,
   siteLink,
 } from "../../app/constants";
 import { FeedbackEmailInput, NotificationEmailInput } from "@/app/email-input";
-
-const numTo2DigitString = (num: number): string => (num < 10 ? "0" : "") + num;
 
 const handler: Handler = async function (event: HandlerEvent) {
   if (event.body === null) {
@@ -29,6 +29,8 @@ const handler: Handler = async function (event: HandlerEvent) {
     ownerName: "Holló János",
     companyPhoneNumber: phoneNumber,
     companyPhoneNumberLink: phoneNumberLink,
+    facebook: facebook,
+    facebookLink: facebookLink,
   };
   await sendEmail({
     from: email,

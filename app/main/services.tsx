@@ -7,8 +7,12 @@ import {
   List,
   Text,
   SimpleGrid,
+  HStack,
 } from "@chakra-ui/react";
+import { JSX } from "@emotion/react/jsx-runtime";
 import { MdBolt } from "react-icons/md";
+import { MdElectricalServices } from "react-icons/md";
+import { FaLightbulb } from "react-icons/fa";
 
 const personal: string[] = [
   "Új elektromos hálózat kiépítése családi házakban, lakásokban",
@@ -35,31 +39,49 @@ const business: string[] = [
 ];
 
 type ServiceCardProps = {
+  icon: JSX.Element;
   title: string;
   content: string[];
 };
 
-export const ServiceCard = ({ title, content }: Readonly<ServiceCardProps>) => {
+export const ServiceCard = ({
+  icon,
+  title,
+  content,
+}: Readonly<ServiceCardProps>) => {
   return (
     <Card.Root
       bg="white"
       height="100%"
-      borderRadius="2em"
+      borderRadius="1em"
+      bgColor="rgba(255, 255, 255, 0.9)"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
       <Card.Header fontSize="lg" fontWeight="semibold">
-        {title}
+        <HStack>
+          {icon}
+          {title}
+        </HStack>
       </Card.Header>
       <Card.Body>
-        <List.Root variant="plain" gap="0.5em">
+        <List.Root variant="plain">
           {content.map((c) => (
-            <List.Item>
+            <List.Item display="flex" alignItems="center" gap="0.5em">
               <List.Indicator>
                 <Icon size="lg" color="accent">
                   <MdBolt />
                 </Icon>
               </List.Indicator>
-              <Text _hover={{ color: "accent" }}>{c}</Text>
+              <Text
+                padding="0.25em"
+                _hover={{
+                  background: "accent",
+                  borderRadius: "1em",
+                  color: "white",
+                }}
+              >
+                {c}
+              </Text>
             </List.Item>
           ))}
         </List.Root>
@@ -70,24 +92,40 @@ export const ServiceCard = ({ title, content }: Readonly<ServiceCardProps>) => {
 
 export default function Services() {
   return (
-    <section id="services">
-      <Box bg="rgba(0, 0, 0, 0.4)" minH={{ base: "auto", md: "100vh" }} p="2em">
-        <Heading marginBottom="2em">Szolgáltatások</Heading>
-        <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>
-          <GridItem>
-            <ServiceCard
-              title="Lakossági/céges villanyszerelés"
-              content={personal}
-            />
-          </GridItem>
-          <GridItem>
-            <ServiceCard
-              title="További kisipari/céges villanyszerelés"
-              content={business}
-            />
-          </GridItem>
-        </SimpleGrid>
-      </Box>
-    </section>
+    <Box
+      id="services"
+      bg="rgba(0, 0, 0, 0.4)"
+      minH={{ base: "auto", md: "100vh" }}
+      p="2em"
+      scrollMarginTop="2em"
+    >
+      <Heading marginBottom="2em" color="white">
+        Szolgáltatások
+      </Heading>
+      <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>
+        <GridItem>
+          <ServiceCard
+            icon={
+              <Icon color="primary" size="2xl">
+                <FaLightbulb />
+              </Icon>
+            }
+            title="Lakossági/céges villanyszerelés"
+            content={personal}
+          />
+        </GridItem>
+        <GridItem>
+          <ServiceCard
+            icon={
+              <Icon color="primary" size="2xl">
+                <MdElectricalServices />
+              </Icon>
+            }
+            title="További kisipari/céges villanyszerelés"
+            content={business}
+          />
+        </GridItem>
+      </SimpleGrid>
+    </Box>
   );
 }

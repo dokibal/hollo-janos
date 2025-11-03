@@ -49,7 +49,7 @@ export default function Form() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <VStack
         bgColor="rgba(255, 255, 255, 0.7)"
-        borderRadius="2em"
+        borderRadius="1em"
         width="100%"
         padding="2em"
         boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
@@ -178,8 +178,16 @@ export default function Form() {
           </Field.ErrorText>
         </Field.Root>
         <Text fontSize="sm" w="100%" mt="2em">
-          Az űrlap elküldésével elfogadja az&nbsp;
-          <Link href="privacy-policy" style={{ textDecoration: "underline" }}>
+          Az űrlap elküldésével elfogadja az{" "}
+          <Link
+            href="/privacy-policy"
+            target="_blank"
+            style={{
+              textDecoration: "underline",
+              whiteSpace: "normal",
+              wordBreak: "break-word",
+            }}
+          >
             Adatkezelési tájékoztatónkat
           </Link>
         </Text>

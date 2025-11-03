@@ -8,4 +8,6 @@ export type FeedbackEmailInput = {
   ownerName: string;
   companyPhoneNumber: string;
   companyPhoneNumberLink: string;
+  facebook: string;
+  facebookLink: string;
 };

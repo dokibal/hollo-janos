@@ -4,7 +4,7 @@ export const buttonRecipe = defineRecipe({
   base: {
     display: "flex",
     bg: "accent",
-    color: "black",
+    color: "primary",
     fontWeight: "bold",
     alignItems: "center",
     justifyContent: "center",

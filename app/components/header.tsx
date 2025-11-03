@@ -11,23 +11,52 @@ import {
   VStack,
   Heading,
   Image,
+  Icon,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { companyName, phoneNumberLink } from "../constants";
 import { useState } from "react";
 import { Button as CustomButton } from "./button";
 import Link from "next/link";
+import { FaInfoCircle } from "react-icons/fa";
+import { MdElectricalServices } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
+import { JSX } from "@emotion/react/jsx-runtime";
 
 type NavItem = {
   to: string;
   title: string;
-  icon: string;
+  icon: JSX.Element;
 };
 
 const navItems: NavItem[] = [
-  { to: "/#about", title: "Rólunk", icon: "ℹ️" },
-  { to: "/#services", title: "Szolgáltatások", icon: "🔧" },
-  { to: "/#contact", title: "Kapcsolat", icon: "📞" },
+  {
+    to: "/#about",
+    title: "Rólunk",
+    icon: (
+      <Icon size="md" color="white">
+        <FaInfoCircle />
+      </Icon>
+    ),
+  },
+  {
+    to: "/#services",
+    title: "Szolgáltatások",
+    icon: (
+      <Icon size="lg" color="white">
+        <MdElectricalServices />
+      </Icon>
+    ),
+  },
+  {
+    to: "/#contact",
+    title: "Kapcsolat",
+    icon: (
+      <Icon size="md" color="red">
+        <FaPhoneAlt />
+      </Icon>
+    ),
+  },
 ];
 
 export default function Header() {
@@ -64,11 +93,11 @@ export default function Header() {
                 background="white"
                 color="secondary"
                 borderBottom="hidden 1px"
-                _active={{ color: "primary" }}
+                _active={{ color: "accent" }}
                 _hover={{
-                  color: "primary",
+                  color: "accent",
                   textDecoration: "none",
-                  borderBottomColor: "secondary",
+                  borderBottomColor: "accent",
                   borderRadius: "0",
                   borderBottom: "solid 1px",
                 }}
@@ -104,20 +133,29 @@ export default function Header() {
                   <VStack gap={6} align="center">
                     {navItems.map((item) => (
                       <HStack>
-                        <Box as="span">{item.icon}</Box>
-                        <Link href={item.to} onClick={() => setMenuOpen(false)}>
-                          <ChakraLink
-                            cursor="pointer"
-                            color="white"
-                            _hover={{ color: "accent" }}
-                            textDecoration="none"
-                            fontSize="xl"
-                          >
-                            {item.title}
-                          </ChakraLink>
-                        </Link>
+                        {item.icon}
+                        <ChakraLink
+                          cursor="pointer"
+                          color="white"
+                          _hover={{ color: "accent" }}
+                          textDecoration="none"
+                          fontSize="xl"
+                          href={item.to}
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {item.title}
+                        </ChakraLink>
                       </HStack>
                     ))}
+                    <Flex w="full" justify="center">
+                      <ChakraLink
+                        href="#services"
+                        onClick={() => setMenuOpen(false)}
+                        _hover={{ textDecoration: "none" }}
+                      >
+                        <CustomButton>Kérjen árajánlatot tőlünk</CustomButton>
+                      </ChakraLink>
+                    </Flex>
                     <Flex w="full" justify="center">
                       <ChakraLink
                         href={phoneNumberLink}

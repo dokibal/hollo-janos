@@ -23,13 +23,13 @@ export default function Page() {
         <Box position="relative" zIndex={1}>
           <About />
           <Box
-            h="100px"
+            h="7em"
             bgImage="linear-gradient(to bottom, white, rgba(0,0,0,1))"
             opacity={0.4}
           ></Box>
           <Services />
           <Box
-            h="100px"
+            h="7em"
             bgImage="linear-gradient(to bottom, rgba(0,0,0,1), white)"
             opacity={0.4}
           ></Box>
