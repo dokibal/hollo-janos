@@ -1,14 +1,20 @@
 import {
   Box,
-  Flex,
   GridItem,
   Heading,
-  Image,
   List,
   SimpleGrid,
   Text,
   VStack,
 } from "@chakra-ui/react";
+
+const advantages: string[] = [
+  "⚡ Gyors, pontos és szakszerű munkavégzés",
+  "🧰 Megbízható, minőségi anyagok és korszerű technológiák",
+  "📅 Rugalmas időpont-egyeztetés, gyors kiszállás",
+  "💬 Korrekt árak, rejtett költségek nélkül",
+  "✅ Garancia minden elvégzett munkára",
+];
 
 export default function About() {
   return (
@@ -47,16 +53,15 @@ export default function About() {
                 width="100%"
                 marginBottom="0.5em"
               >
-                <Heading size="lg">
-                  Miért válasszon minket, ha megbízható villanyszerelőt keres
-                  Tatabányán és környékén?
-                </Heading>
+                <Heading size="lg">Miért válasszon minket?</Heading>
               </Box>
               <Text textStyle="md" fontWeight="normal" marginLeft="1em">
-                Ha tapasztalt, precíz és megbízható villanyszerelőt Tatabányán
-                vagy a környező településeken keres, jó helyen jár! <br />
+                Ha tapasztalt, precíz és megbízható villanyszerelőt keres
+                Tatabányán vagy a környező településeken, jó helyen jár! <br />
+                <br />
                 Cégünk több éves szakmai tapasztalattal vállal teljes körű
                 villanyszerelési munkákat lakossági és céges ügyfelek számára.
+                <br />
                 Fontos számunkra, hogy minden ügyfelünk biztonságban és
                 elégedetten használhassa elektromos hálózatát — legyen szó egy
                 kisebb javításról vagy teljes új rendszer kiépítéséről.
@@ -82,19 +87,18 @@ export default function About() {
                   textStyle="md"
                   fontWeight="normal"
                 >
-                  <List.Item>
-                    ⚡ Gyors, pontos és szakszerű munkavégzés
-                  </List.Item>
-                  <List.Item>
-                    🧰 Megbízható, minőségi anyagok és korszerű technológiák
-                  </List.Item>
-                  <List.Item>
-                    📅 Rugalmas időpont-egyeztetés, gyors kiszállás
-                  </List.Item>
-                  <List.Item>
-                    💬 Korrekt árak, rejtett költségek nélkül
-                  </List.Item>
-                  <List.Item>✅ Garancia minden elvégzett munkára</List.Item>
+                  {advantages.map((a) => (
+                    <List.Item
+                      padding="0.25em"
+                      _hover={{
+                        background: "accent",
+                        color: "textWhite",
+                        borderRadius: "1em",
+                      }}
+                    >
+                      {a}
+                    </List.Item>
+                  ))}
                 </List.Root>
               </Box>
               <Text textStyle="md" fontWeight="normal">

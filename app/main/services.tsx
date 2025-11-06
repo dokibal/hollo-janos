@@ -8,6 +8,8 @@ import {
   Text,
   SimpleGrid,
   HStack,
+  Image,
+  Flex,
 } from "@chakra-ui/react";
 import { JSX } from "@emotion/react/jsx-runtime";
 import { MdBolt } from "react-icons/md";
@@ -74,10 +76,11 @@ export const ServiceCard = ({
               </List.Indicator>
               <Text
                 padding="0.25em"
+                width="100%"
                 _hover={{
                   background: "accent",
+                  color: "textWhite",
                   borderRadius: "1em",
-                  color: "white",
                 }}
               >
                 {c}
@@ -92,40 +95,49 @@ export const ServiceCard = ({
 
 export default function Services() {
   return (
-    <Box
-      id="services"
-      bg="rgba(0, 0, 0, 0.4)"
-      minH={{ base: "auto", md: "100vh" }}
-      p="2em"
-      scrollMarginTop="2em"
-    >
-      <Heading marginBottom="2em" color="white">
-        Szolgáltatások
-      </Heading>
-      <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>
-        <GridItem>
-          <ServiceCard
-            icon={
-              <Icon color="primary" size="2xl">
-                <FaLightbulb />
-              </Icon>
-            }
-            title="Lakossági/céges villanyszerelés"
-            content={personal}
+    <section id="services">
+      <Box
+        bg="rgba(0, 0, 0, 0.4)"
+        minH={{ base: "auto", md: "100vh" }}
+        p="2em"
+        scrollMarginTop="2em"
+      >
+        <Heading marginBottom="2em" color="white">
+          Szolgáltatások
+        </Heading>
+        <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>
+          <GridItem>
+            <ServiceCard
+              icon={
+                <Icon color="primary" size="2xl">
+                  <FaLightbulb />
+                </Icon>
+              }
+              title="Lakossági/céges villanyszerelés"
+              content={personal}
+            />
+          </GridItem>
+          <GridItem>
+            <ServiceCard
+              icon={
+                <Icon color="primary" size="2xl">
+                  <MdElectricalServices />
+                </Icon>
+              }
+              title="További kisipari/céges villanyszerelés"
+              content={business}
+            />
+          </GridItem>
+        </SimpleGrid>
+        <Flex width="100%" justifyContent="center">
+          <Image
+            src="tools.jpg"
+            marginTop="3em"
+            width={{ base: "100%", md: "50%" }}
+            borderRadius="1em"
           />
-        </GridItem>
-        <GridItem>
-          <ServiceCard
-            icon={
-              <Icon color="primary" size="2xl">
-                <MdElectricalServices />
-              </Icon>
-            }
-            title="További kisipari/céges villanyszerelés"
-            content={business}
-          />
-        </GridItem>
-      </SimpleGrid>
-    </Box>
+        </Flex>
+      </Box>
+    </section>
   );
 }

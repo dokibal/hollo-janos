@@ -3,7 +3,10 @@ import { defineRecipe } from "@chakra-ui/react";
 export const buttonRecipe = defineRecipe({
   base: {
     display: "flex",
-    bg: "accent",
+    borderStyle: "solid",
+    borderWidth: "1px",
+    borderColor: "accent",
+    background: "accent",
     color: "primary",
     fontWeight: "bold",
     alignItems: "center",
@@ -12,11 +15,12 @@ export const buttonRecipe = defineRecipe({
     padding: "0.5em",
     cursor: "pointer",
 
-    _hover: { fontWeight: "bolder", color: "white" },
+    _hover: { background: "accentDark", fontWeight: "bolder", color: "white" },
 
     _disabled: {
-      bg: "gray.400",
-      color: "gray.700",
+      background: "secondary",
+      borderColor: "secondary",
+      color: "textWhite",
       cursor: "not-allowed",
       _hover: { bg: "gray.400" },
     },

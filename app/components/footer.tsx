@@ -5,6 +5,7 @@ import {
   SimpleGrid,
   GridItem,
   Icon,
+  VStack,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import {
@@ -16,34 +17,49 @@ import {
   phoneNumber,
   phoneNumberLink,
 } from "../constants";
-import { FaFacebook, FaPhoneAlt } from "react-icons/fa";
+import { FaFacebookF, FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <Flex
+    <VStack
       bg="primaryDark"
       p="0.5em"
       color="textWhite"
       fontWeight="light"
-      fontSize="small"
+      fontSize="sm"
       justify="center"
     >
-      <SimpleGrid columns={{ base: 2, md: 5 }} gapX="1em">
+      <SimpleGrid columns={2} gapX="1em">
         <GridItem>
-          <ChakraLink
-            color="inherit"
-            href={phoneNumberLink}
-            _hover={{ textDecoration: "none" }}
-          >
-            <Icon size="sm" color="red">
-              <FaPhoneAlt />
-            </Icon>{" "}
-            {phoneNumber}
-          </ChakraLink>
+          <VStack>
+            <ChakraLink
+              as={Link}
+              color="inherit"
+              href={phoneNumberLink}
+              _hover={{ textDecoration: "none" }}
+            >
+              <Icon size="sm" color="red">
+                <FaPhoneAlt />
+              </Icon>{" "}
+              {phoneNumber}
+            </ChakraLink>
+
+            <ChakraLink
+              as={Link}
+              color="inherit"
+              href={facebookLink}
+              _hover={{ textDecoration: "none" }}
+            >
+              <Icon size="sm">
+                <FaFacebookF />
+              </Icon>{" "}
+            </ChakraLink>
+          </VStack>
         </GridItem>
         <GridItem>
           <ChakraLink
+            as={Link}
             color="inherit"
             href={emailLink}
             _hover={{ textDecoration: "none" }}
@@ -53,30 +69,19 @@ export default function Footer() {
             </Icon>{" "}
             {email}
           </ChakraLink>
-        </GridItem>
-        <GridItem>
           <ChakraLink
-            color="inherit"
-            href={facebookLink}
-            _hover={{ textDecoration: "none" }}
+            display="flex"
+            color="textWhite"
+            as={Link}
+            href="/privacy-policy"
+            target="_blank"
+            textDecoration="underline"
           >
-            <Icon size="sm" color="#1877F2">
-              <FaFacebook />
-            </Icon>{" "}
-            {facebook}
+            Adatkezelési tájékoztató
           </ChakraLink>
         </GridItem>
-        <GridItem>
-          <Text>
-            <Link href="/privacy-policy" target="_blank">
-              Adatkezelési tájékoztató
-            </Link>
-          </Text>
-        </GridItem>
-        <GridItem>
-          <Text>© 2025 {companyName}</Text>
-        </GridItem>
       </SimpleGrid>
-    </Flex>
+      <Text>© 2025 {companyName}</Text>
+    </VStack>
   );
 }

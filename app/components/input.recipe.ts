@@ -6,7 +6,7 @@ export const inputRecipe = defineRecipe({
     borderWidth: "1px",
     borderRadius: "0.25em",
     borderColor: "primary",
-    bg: "white",
+    background: "white",
     outline: "none",
     _focus: {
       borderColor: "accent",

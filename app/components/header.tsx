@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { companyName, phoneNumberLink } from "../constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button as CustomButton } from "./button";
 import Link from "next/link";
 import { FaInfoCircle } from "react-icons/fa";
@@ -34,7 +34,7 @@ const navItems: NavItem[] = [
     to: "/#about",
     title: "Rólunk",
     icon: (
-      <Icon size="md" color="white">
+      <Icon size="md" color="blue">
         <FaInfoCircle />
       </Icon>
     ),
@@ -62,6 +62,27 @@ const navItems: NavItem[] = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Box
       bg="white"
@@ -82,18 +103,28 @@ export default function Header() {
           spaceX="0.5em"
           cursor="pointer"
         >
-          <Image src="company_logo.png" height="100%" width="auto" />
-          <Heading color="primary">{companyName}</Heading>
+          <ChakraLink as={Link} href="" textDecoration="none" outline="none">
+            <Image
+              src="company_logo.png"
+              height="2em"
+              width="auto"
+              objectFit="contain"
+            />
+            <Heading color="primary">{companyName}</Heading>
+          </ChakraLink>
         </HStack>
 
         <Flex display={{ base: "none", md: "flex" }} gap={4} ml="auto">
           {navItems.map((item) => (
-            <Link href={item.to}>
+            <Link key={item.to} href={item.to}>
               <Button
                 background="white"
-                color="secondary"
+                color={
+                  item.to.substring(2) === activeSection
+                    ? "accent"
+                    : "secondary"
+                }
                 borderBottom="hidden 1px"
-                _active={{ color: "accent" }}
                 _hover={{
                   color: "accent",
                   textDecoration: "none",
@@ -135,10 +166,16 @@ export default function Header() {
                       <HStack>
                         {item.icon}
                         <ChakraLink
+                          as={Link}
                           cursor="pointer"
-                          color="white"
+                          color={
+                            item.to.substring(2) === activeSection
+                              ? "accent"
+                              : "textWhite"
+                          }
                           _hover={{ color: "accent" }}
                           textDecoration="none"
+                          outline="none"
                           fontSize="xl"
                           href={item.to}
                           onClick={() => setMenuOpen(false)}
@@ -149,17 +186,21 @@ export default function Header() {
                     ))}
                     <Flex w="full" justify="center">
                       <ChakraLink
-                        href="#services"
+                        as={Link}
+                        href="#contact"
                         onClick={() => setMenuOpen(false)}
-                        _hover={{ textDecoration: "none" }}
+                        textDecoration="none"
+                        outline="none"
                       >
                         <CustomButton>Kérjen árajánlatot tőlünk</CustomButton>
                       </ChakraLink>
                     </Flex>
                     <Flex w="full" justify="center">
                       <ChakraLink
+                        as={Link}
                         href={phoneNumberLink}
-                        _hover={{ textDecoration: "none" }}
+                        textDecoration="none"
+                        outline="none"
                       >
                         <CustomButton>Hívjon most</CustomButton>
                       </ChakraLink>
