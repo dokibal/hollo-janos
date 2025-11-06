@@ -46,6 +46,7 @@ export default function Form() {
       width="100%"
       height="100%"
       padding="2em"
+      justify="center"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
       {isSubmitSuccessful ? (

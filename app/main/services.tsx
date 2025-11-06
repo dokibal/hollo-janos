@@ -131,7 +131,7 @@ export default function Services() {
         </SimpleGrid>
         <Flex width="100%" justifyContent="center">
           <Image
-            src="tools.jpg"
+            src="tools.webp"
             marginTop="3em"
             width={{ base: "100%", md: "50%" }}
             borderRadius="1em"

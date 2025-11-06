@@ -12,7 +12,7 @@ export default function LandingPage() {
         justifyContent="center"
         position="relative"
         backgroundColor="white"
-        backgroundImage="url('landing-background.png')"
+        backgroundImage="url('landing-background.webp')"
         backgroundSize="cover"
         backgroundPosition="center"
         zIndex={1}

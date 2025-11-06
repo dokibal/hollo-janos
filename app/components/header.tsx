@@ -105,7 +105,7 @@ export default function Header() {
         >
           <ChakraLink as={Link} href="" textDecoration="none" outline="none">
             <Image
-              src="company_logo.png"
+              src="company_logo.webp"
               height="2em"
               width="auto"
               objectFit="contain"
