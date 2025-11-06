@@ -77,6 +77,7 @@ export const ServiceCard = ({
               <Text
                 padding="0.25em"
                 width="100%"
+                color="primary"
                 _hover={{
                   background: "accent",
                   color: "textWhite",
