@@ -57,6 +57,7 @@ export const ServiceCard = ({
       height="100%"
       borderRadius="1em"
       bgColor="rgba(255, 255, 255, 0.9)"
+      color="primary"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
       <Card.Header fontSize="lg" fontWeight="semibold">
@@ -77,7 +78,6 @@ export const ServiceCard = ({
               <Text
                 padding="0.25em"
                 width="100%"
-                color="primary"
                 _hover={{
                   background: "accent",
                   color: "textWhite",

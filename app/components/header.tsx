@@ -118,6 +118,7 @@ export default function Header() {
           {navItems.map((item) => (
             <Link key={item.to} href={item.to}>
               <Button
+                fontSize="lg"
                 background="white"
                 color={
                   item.to.substring(2) === activeSection

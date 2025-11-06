@@ -42,6 +42,7 @@ export default function Form() {
   return (
     <VStack
       bgColor="rgba(255, 255, 255, 0.7)"
+      color="primary"
       borderRadius="1em"
       width="100%"
       height="100%"

@@ -30,7 +30,7 @@ export default function Footer() {
       fontSize="sm"
       justify="center"
     >
-      <SimpleGrid columns={2} gapX="1em">
+      <SimpleGrid columns={2} gap="1em">
         <GridItem>
           <VStack>
             <ChakraLink
@@ -51,34 +51,37 @@ export default function Footer() {
               href={facebookLink}
               _hover={{ textDecoration: "none" }}
             >
-              <Icon size="sm">
+              <Icon size={{ base: "sm", md: "md" }}>
                 <FaFacebookF />
               </Icon>{" "}
+              {facebook}
             </ChakraLink>
           </VStack>
         </GridItem>
         <GridItem>
-          <ChakraLink
-            as={Link}
-            color="inherit"
-            href={emailLink}
-            _hover={{ textDecoration: "none" }}
-          >
-            <Icon size="sm" color="white">
-              <MdOutlineEmail />
-            </Icon>{" "}
-            {email}
-          </ChakraLink>
-          <ChakraLink
-            display="flex"
-            color="textWhite"
-            as={Link}
-            href="/privacy-policy"
-            target="_blank"
-            textDecoration="underline"
-          >
-            Adatkezelési tájékoztató
-          </ChakraLink>
+          <VStack>
+            <ChakraLink
+              as={Link}
+              color="inherit"
+              href={emailLink}
+              _hover={{ textDecoration: "none" }}
+            >
+              <Icon size="sm" color="white">
+                <MdOutlineEmail />
+              </Icon>{" "}
+              {email}
+            </ChakraLink>
+            <ChakraLink
+              display="flex"
+              color="textWhite"
+              as={Link}
+              href="/privacy-policy"
+              target="_blank"
+              textDecoration="underline"
+            >
+              Adatkezelési tájékoztató
+            </ChakraLink>
+          </VStack>
         </GridItem>
       </SimpleGrid>
       <Text>© 2025 {companyName}</Text>
