@@ -15,13 +15,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="hu">
       <head>
         <title>{`${companyName}`}</title>
-        <link
-          rel="preload"
-          href="/Roboto-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
       </head>
       <body>
         <ChakraProvider value={customSystem}>

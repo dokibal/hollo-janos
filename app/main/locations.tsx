@@ -14,7 +14,7 @@ const importantLocations: string[] = [
 
 const placeId: string =
   "ChIJhw6XrnlAakcRgBIeDCnEAAQ&key=AIzaSyByhqgtXi4_iekCPb0IjtKoJWW96FQ3gi8";
-const apiKey: string = "AIzaSyByhqgtXi4_iekCPb0IjtKoJWW96FQ3gi8";
+const apiKey: string = "AIzaSyATFkbwV2XUjMld5fGWn_yP0iw0m-O6bDc";
 const zoom: number = 10;
 
 export default function Locations() {
