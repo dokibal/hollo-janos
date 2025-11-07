@@ -8,24 +8,24 @@ export default function Contact() {
     <section id="contact">
       <Flex
         minH={{ base: "auto", md: "100vh" }}
-        p="2em"
+        padding="clamp(1rem, 4vw, 3rem)"
         overflow="auto"
         display="flex"
       >
-        <SimpleGrid columns={{ base: 1, md: 3 }} gap="2em" width="100%">
+        <SimpleGrid columns={{ base: 1, md: 5 }} gap="4em" width="100%">
           <GridItem
-            colSpan={{ base: 1, md: 1 }}
+            colSpan={{ base: 1, md: 2 }}
             display="flex"
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
-            gap="2em"
+            gap="4em"
           >
             <ContactUs />
             <Locations />
           </GridItem>
           <GridItem
-            colSpan={{ base: 1, md: 2 }}
+            colSpan={{ base: 1, md: 3 }}
             display="flex"
             alignItems="center"
           >

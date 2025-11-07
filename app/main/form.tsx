@@ -18,7 +18,10 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import ContactBlock from "./contact-block";
 
 const townCollection = createListCollection({
-  items: Object.values(locations).flatMap((t) => ({ label: t, value: t })),
+  items: Array.from(locations.values())
+    .flat()
+    .sort((a, b) => a.localeCompare(b, "hu"))
+    .map((t) => ({ label: t, value: t })),
 });
 
 const RequiredIndicator = () => <span style={{ color: "red" }}>*</span>;

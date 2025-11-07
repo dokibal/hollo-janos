@@ -20,8 +20,8 @@ export default function ContactUs() {
         justifyContent="center"
         alignItems="left"
         gap="1em"
-        marginLeft="2em"
-        fontSize="2xl"
+        marginLeft={{ base: "1em", md: "2em" }}
+        fontSize={{ base: "lg", md: "2xl" }}
       >
         <HStack gap="1em">
           <Icon size="md" color="red">

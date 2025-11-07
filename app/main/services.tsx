@@ -55,7 +55,7 @@ export const ServiceCard = ({
     <Card.Root
       height="100%"
       borderRadius="1em"
-      bgColor="rgba(255, 255, 255, 0.7)"
+      bgColor="white"
       color="primary"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
@@ -96,11 +96,15 @@ export const ServiceCard = ({
 export default function Services() {
   return (
     <section id="services">
-      <Box bg="rgba(0, 0, 0, 0.4)" minH={{ base: "auto", md: "100vh" }} p="2em">
+      <Box
+        bg="rgba(0, 0, 0, 0.4)"
+        minH={{ base: "auto", md: "100vh" }}
+        padding="clamp(1rem, 4vw, 3rem)"
+      >
         <Heading size="2xl" marginBottom="2em" color="textWhite">
           Teljeskörű villanyszerelési megoldások
         </Heading>
-        <SimpleGrid gap="3em" columns={{ base: 1, md: 2 }}>
+        <SimpleGrid gap="4em" columns={{ base: 1, md: 2 }}>
           <GridItem>
             <ServiceCard
               icon={
@@ -127,7 +131,7 @@ export default function Services() {
         <Flex width="100%" justifyContent="center">
           <Image
             src="tools.webp"
-            marginTop="3em"
+            marginTop="4em"
             width={{ base: "100%", md: "50%" }}
             borderRadius="1em"
           />

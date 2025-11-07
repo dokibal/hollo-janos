@@ -22,7 +22,10 @@ const advantages: string[] = [
 export default function About() {
   return (
     <section id="about">
-      <Flex minH={{ base: "auto", md: "100vh" }} p="2em">
+      <Flex
+        minH={{ base: "auto", md: "100vh" }}
+        padding="clamp(1rem, 4vw, 3rem)"
+      >
         <SimpleGrid columns={{ base: 1, md: 10 }}>
           <GridItem
             display="flex"
