@@ -119,13 +119,18 @@ export default function About() {
             alignItems="center"
             colSpan={{ base: 1, md: 4 }}
           >
-            <Image
-              src="profile.webp"
-              borderRadius="1em"
-              width="60%"
-              boxShadow="0 4px 20px 0 rgba(15, 17, 19, 0.7), 0 4px 20px 0 rgba(15, 17, 19, 0.7)"
-              objectFit="cover"
-            />
+            <VStack>
+              <Image
+                src="profile.webp"
+                borderRadius="1em"
+                width="60%"
+                boxShadow="0 4px 20px 0 rgba(15, 17, 19, 0.7), 0 4px 20px 0 rgba(15, 17, 19, 0.7)"
+                objectFit="cover"
+              />
+              <Text fontWeight="bold" fontSize="2xl" color="primary">
+                Holló János
+              </Text>
+            </VStack>
           </GridItem>
         </SimpleGrid>
       </Flex>
