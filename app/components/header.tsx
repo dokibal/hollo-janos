@@ -85,8 +85,7 @@ export default function Header() {
 
   return (
     <Box
-      bg="white"
-      color="white"
+      bg="textWhite"
       p="0.5em"
       height="3em"
       width="100%"
@@ -202,7 +201,7 @@ export default function Header() {
                         textDecoration="none"
                         outline="none"
                       >
-                        <CustomButton>Kérjen árajánlatot tőlünk</CustomButton>
+                        <CustomButton>Kérjen árajánlatot</CustomButton>
                       </ChakraLink>
                       <ChakraLink
                         as={Link}

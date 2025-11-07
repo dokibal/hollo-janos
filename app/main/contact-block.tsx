@@ -20,7 +20,7 @@ export default function ContactBlock({
       color={color === "textWhite" ? "black" : "textWhite"}
       borderRadius="1em"
       width="100%"
-      height="100%"
+      height="fit-content"
       paddingTop="5em"
       paddingBottom="5em"
       boxShadow="0 4px 20px 0 rgba(15, 17, 19, 0.7), 0 4px 20px 0 rgba(15, 17, 19, 0.7)"
@@ -28,20 +28,11 @@ export default function ContactBlock({
       padding="2em 1em 2em 1em"
     >
       <Box display="flex" justifyContent="left" width="100%">
-        <Heading marginBottom="2em" size="xl">
+        <Heading marginBottom="clamp(1rem, 2vw, 2rem)" size="xl">
           {title}
         </Heading>
       </Box>
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="left"
-        gap="1em"
-        width="100%"
-        height="100%"
-      >
-        {children}
-      </Box>
+      <Box width="100%">{children}</Box>
     </VStack>
   );
 }

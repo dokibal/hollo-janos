@@ -44,13 +44,11 @@ export default function Form() {
 
   return isSubmitSuccessful ? (
     <VStack
-      bgColor="rgba(255, 255, 255, 0.7)"
+      bgColor="textWhite"
       color="primary"
       borderRadius="1em"
       width="100%"
-      height="100%"
       padding="2em"
-      justify="center"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
       <Text fontSize="xl">
@@ -60,7 +58,7 @@ export default function Form() {
       </Text>
     </VStack>
   ) : (
-    <ContactBlock title="Kérjen árajánlatot tőlünk!" color="textWhite">
+    <ContactBlock title="Kérjen árajánlatot!" color="textWhite">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box spaceY="1em">
           <Field.Root invalid={Boolean(errors.name)}>
@@ -157,8 +155,8 @@ export default function Form() {
               Leírás <RequiredIndicator />
             </Field.Label>
             <Textarea
-              maxLength={500}
-              rows={5}
+              maxLength={1000}
+              rows={9}
               focusRingColor="accent"
               _focus={{ borderColor: "accent" }}
               borderRadius="0.25em"
@@ -170,13 +168,18 @@ export default function Form() {
                 required: "Az üzenet megadása kötelező",
               })}
             />
-            <Field.HelperText>Maximum 500 karakter</Field.HelperText>
+            <Field.HelperText>Maximum 1000 karakter</Field.HelperText>
             <Field.ErrorText>
               {errors.message && errors.message.message}
             </Field.ErrorText>
           </Field.Root>
         </Box>
-        <Text fontSize="sm" width="100%" marginTop="1em" marginBottom="0.5em">
+        <Text
+          fontSize="sm"
+          width="100%"
+          marginTop="clamp(1rem, 2vw, 3rem)"
+          marginBottom="0.5em"
+        >
           Az űrlap elküldésével elfogadja az{" "}
           <Link
             href="/privacy-policy"

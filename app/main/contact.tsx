@@ -11,24 +11,19 @@ export default function Contact() {
         padding="clamp(1rem, 4vw, 3rem)"
         overflow="auto"
         display="flex"
+        height="100%"
       >
-        <SimpleGrid columns={{ base: 1, md: 5 }} gap="4em" width="100%">
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap="4em">
           <GridItem
-            colSpan={{ base: 1, md: 2 }}
+            colSpan={{ base: 1, md: 1 }}
             display="flex"
             flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
             gap="4em"
           >
             <ContactUs />
             <Locations />
           </GridItem>
-          <GridItem
-            colSpan={{ base: 1, md: 3 }}
-            display="flex"
-            alignItems="center"
-          >
+          <GridItem colSpan={{ base: 1, md: 1 }} display="flex">
             <Form />
           </GridItem>
         </SimpleGrid>

@@ -7,6 +7,7 @@ import {
   SimpleGrid,
   Text,
   VStack,
+  Image,
 } from "@chakra-ui/react";
 import { Button } from "../components/button";
 import Link from "next/link";
@@ -26,7 +27,7 @@ export default function About() {
         minH={{ base: "auto", md: "100vh" }}
         padding="clamp(1rem, 4vw, 3rem)"
       >
-        <SimpleGrid columns={{ base: 1, md: 10 }}>
+        <SimpleGrid columns={{ base: 1, md: 10 }} gap="3em">
           <GridItem
             display="flex"
             justifyContent={"center"}
@@ -117,7 +118,15 @@ export default function About() {
             justifyContent={"center"}
             alignItems="center"
             colSpan={{ base: 1, md: 4 }}
-          ></GridItem>
+          >
+            <Image
+              src="profile.webp"
+              borderRadius="1em"
+              width="60%"
+              boxShadow="0 4px 20px 0 rgba(15, 17, 19, 0.7), 0 4px 20px 0 rgba(15, 17, 19, 0.7)"
+              objectFit="cover"
+            />
+          </GridItem>
         </SimpleGrid>
       </Flex>
     </section>

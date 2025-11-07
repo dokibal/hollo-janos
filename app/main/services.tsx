@@ -132,7 +132,7 @@ export default function Services() {
           <Image
             src="tools.webp"
             marginTop="4em"
-            width={{ base: "100%", md: "50%" }}
+            width={{ base: "100%", md: "40%" }}
             borderRadius="1em"
           />
         </Flex>
