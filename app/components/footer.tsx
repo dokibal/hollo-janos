@@ -1,5 +1,4 @@
 import {
-  Flex,
   Text,
   Link as ChakraLink,
   SimpleGrid,
@@ -35,11 +34,12 @@ export default function Footer() {
           <VStack>
             <ChakraLink
               as={Link}
-              color="inherit"
               href={phoneNumberLink}
-              _hover={{ textDecoration: "none" }}
+              color="inherit"
+              textDecoration="none"
+              outline="none"
             >
-              <Icon size="sm" color="red">
+              <Icon size="sm" color="inherit">
                 <FaPhoneAlt />
               </Icon>{" "}
               {phoneNumber}
@@ -47,11 +47,12 @@ export default function Footer() {
 
             <ChakraLink
               as={Link}
-              color="inherit"
               href={facebookLink}
-              _hover={{ textDecoration: "none" }}
+              color="inherit"
+              textDecoration="none"
+              outline="none"
             >
-              <Icon size={{ base: "sm", md: "md" }}>
+              <Icon size={{ base: "sm", md: "md" }} color="inherit">
                 <FaFacebookF />
               </Icon>{" "}
               {facebook}
@@ -62,29 +63,31 @@ export default function Footer() {
           <VStack>
             <ChakraLink
               as={Link}
-              color="inherit"
               href={emailLink}
-              _hover={{ textDecoration: "none" }}
+              color="inherit"
+              textDecoration="none"
+              outline="none"
             >
-              <Icon size="sm" color="white">
+              <Icon size="sm" color="inherit">
                 <MdOutlineEmail />
               </Icon>{" "}
               {email}
             </ChakraLink>
             <ChakraLink
               display="flex"
-              color="textWhite"
+              color="inherit"
               as={Link}
               href="/privacy-policy"
               target="_blank"
               textDecoration="underline"
+              outline="none"
             >
               Adatkezelési tájékoztató
             </ChakraLink>
           </VStack>
         </GridItem>
       </SimpleGrid>
-      <Text>© 2025 {companyName}</Text>
+      <Text color="inherit">© 2025 {companyName}</Text>
     </VStack>
   );
 }

@@ -53,10 +53,9 @@ export const ServiceCard = ({
 }: Readonly<ServiceCardProps>) => {
   return (
     <Card.Root
-      bg="white"
       height="100%"
       borderRadius="1em"
-      bgColor="rgba(255, 255, 255, 0.9)"
+      bgColor="rgba(255, 255, 255, 0.7)"
       color="primary"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
@@ -97,16 +96,11 @@ export const ServiceCard = ({
 export default function Services() {
   return (
     <section id="services">
-      <Box
-        bg="rgba(0, 0, 0, 0.4)"
-        minH={{ base: "auto", md: "100vh" }}
-        p="2em"
-        scrollMarginTop="2em"
-      >
-        <Heading marginBottom="2em" color="white">
-          Szolgáltatások
+      <Box bg="rgba(0, 0, 0, 0.4)" minH={{ base: "auto", md: "100vh" }} p="2em">
+        <Heading size="2xl" marginBottom="2em" color="textWhite">
+          Teljeskörű villanyszerelési megoldások
         </Heading>
-        <SimpleGrid gap="2em" columns={{ base: 1, md: 2 }}>
+        <SimpleGrid gap="3em" columns={{ base: 1, md: 2 }}>
           <GridItem>
             <ServiceCard
               icon={

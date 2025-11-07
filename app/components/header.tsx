@@ -3,7 +3,6 @@ import {
   Link as ChakraLink,
   Box,
   Drawer,
-  CloseButton,
   Button,
   Portal,
   IconButton,
@@ -22,6 +21,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { MdElectricalServices } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { JSX } from "@emotion/react/jsx-runtime";
+import { IoClose } from "react-icons/io5";
 
 type NavItem = {
   to: string;
@@ -34,16 +34,16 @@ const navItems: NavItem[] = [
     to: "/#about",
     title: "Rólunk",
     icon: (
-      <Icon size="md" color="blue">
+      <Icon size="md">
         <FaInfoCircle />
       </Icon>
     ),
   },
   {
     to: "/#services",
-    title: "Szolgáltatások",
+    title: "Szolgáltatásaink",
     icon: (
-      <Icon size="lg" color="white">
+      <Icon size="lg">
         <MdElectricalServices />
       </Icon>
     ),
@@ -52,7 +52,7 @@ const navItems: NavItem[] = [
     to: "/#contact",
     title: "Kapcsolat",
     icon: (
-      <Icon size="md" color="red">
+      <Icon size="md">
         <FaPhoneAlt />
       </Icon>
     ),
@@ -103,7 +103,7 @@ export default function Header() {
           spaceX="0.5em"
           cursor="pointer"
         >
-          <ChakraLink as={Link} href="" textDecoration="none" outline="none">
+          <ChakraLink as={Link} href="/" textDecoration="none" outline="none">
             <Image
               src="company_logo.webp"
               height="2em"
@@ -144,7 +144,9 @@ export default function Header() {
           open={menuOpen}
           onOpenChange={(e) => setMenuOpen(e.open)}
           placement="end"
+          preventScroll={true}
         >
+          <Drawer.Backdrop />
           <Drawer.Trigger asChild>
             <IconButton
               size="md"
@@ -162,30 +164,37 @@ export default function Header() {
             <Drawer.Positioner pl="0.5em" pr="0.5em">
               <Drawer.Content bg="primary">
                 <Drawer.Body mt="2em">
-                  <VStack gap={6} align="center">
-                    {navItems.map((item) => (
-                      <HStack>
-                        {item.icon}
-                        <ChakraLink
-                          as={Link}
-                          cursor="pointer"
-                          color={
-                            item.to.substring(2) === activeSection
-                              ? "accent"
-                              : "textWhite"
-                          }
-                          _hover={{ color: "accent" }}
-                          textDecoration="none"
-                          outline="none"
-                          fontSize="xl"
-                          href={item.to}
-                          onClick={() => setMenuOpen(false)}
-                        >
-                          {item.title}
-                        </ChakraLink>
-                      </HStack>
-                    ))}
-                    <Flex w="full" justify="center">
+                  <VStack gap="2em" align="center">
+                    {navItems.map((item) => {
+                      const color: string =
+                        item.to.substring(2) === activeSection
+                          ? "accent"
+                          : "textWhite";
+                      return (
+                        <HStack color={color}>
+                          {item.icon}
+                          <ChakraLink
+                            as={Link}
+                            cursor="pointer"
+                            _hover={{ color: "accent" }}
+                            color={color}
+                            textDecoration="none"
+                            outline="none"
+                            fontSize="xl"
+                            href={item.to}
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            {item.title}
+                          </ChakraLink>
+                        </HStack>
+                      );
+                    })}
+                    <Flex
+                      flexDirection="column"
+                      w="full"
+                      alignItems="center"
+                      gap="2em"
+                    >
                       <ChakraLink
                         as={Link}
                         href="#contact"
@@ -195,8 +204,6 @@ export default function Header() {
                       >
                         <CustomButton>Kérjen árajánlatot tőlünk</CustomButton>
                       </ChakraLink>
-                    </Flex>
-                    <Flex w="full" justify="center">
                       <ChakraLink
                         as={Link}
                         href={phoneNumberLink}
@@ -209,11 +216,13 @@ export default function Header() {
                   </VStack>
                 </Drawer.Body>
                 <Drawer.CloseTrigger asChild>
-                  <CloseButton
-                    size="sm"
-                    color="white"
+                  <Icon
+                    size="2xl"
+                    color="textWhite"
                     _hover={{ background: "accent" }}
-                  />
+                  >
+                    <IoClose />
+                  </Icon>
                 </Drawer.CloseTrigger>
               </Drawer.Content>
             </Drawer.Positioner>

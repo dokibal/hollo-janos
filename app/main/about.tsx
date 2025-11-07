@@ -1,5 +1,6 @@
 import {
   Box,
+  Flex,
   GridItem,
   Heading,
   List,
@@ -7,6 +8,8 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { Button } from "../components/button";
+import Link from "next/link";
 
 const advantages: string[] = [
   "⚡ Gyors, pontos és szakszerű munkavégzés",
@@ -19,14 +22,7 @@ const advantages: string[] = [
 export default function About() {
   return (
     <section id="about">
-      <Box
-        minH={{ base: "auto", md: "100vh" }}
-        p="2em"
-        pt="4em"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
+      <Flex minH={{ base: "auto", md: "100vh" }} p="2em">
         <SimpleGrid columns={{ base: 1, md: 10 }}>
           <GridItem
             display="flex"
@@ -101,13 +97,16 @@ export default function About() {
                   ))}
                 </List.Root>
               </Box>
-              <Text textStyle="md" fontWeight="normal">
+              <Text textStyle="md" fontWeight="normal" marginBottom="1em">
                 Célunk, hogy ne csak egy szolgáltatást, hanem biztonságot és
                 nyugalmat nyújtsunk Önnek. <br />
                 Válasszon minket, ha fontos Önnek a precizitás, a biztonság és a
                 megbízhatóság - mert mi nem csak dolgozunk, hanem felelősséget
                 is vállalunk munkánkért.
               </Text>
+              <Link href="#services">
+                <Button>Fedezze fel szolgáltatásainkat</Button>
+              </Link>
             </VStack>
           </GridItem>
           <GridItem
@@ -117,7 +116,7 @@ export default function About() {
             colSpan={{ base: 1, md: 4 }}
           ></GridItem>
         </SimpleGrid>
-      </Box>
+      </Flex>
     </section>
   );
 }
