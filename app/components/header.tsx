@@ -75,13 +75,12 @@ export default function Header() {
             setActiveSection(id);
 
             if (window.location.hash !== `#${id}`) {
-              console.log(`Replace state...`);
               history.replaceState(null, "", `#${id}`);
             }
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.2 }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -158,7 +157,7 @@ export default function Header() {
               aria-label="Open Menu"
               display={{ base: "flex", md: "none" }}
               bg="primary"
-              color="white"
+              color="textWhite"
               _hover={{ bg: "accent", color: "primary" }}
               ml="auto"
             >
@@ -166,9 +165,9 @@ export default function Header() {
             </IconButton>
           </Drawer.Trigger>
           <Portal>
-            <Drawer.Positioner pl="0.5em" pr="0.5em">
+            <Drawer.Positioner>
               <Drawer.Content bg="primary">
-                <Drawer.Body mt="2em">
+                <Drawer.Body mt="5em">
                   <VStack gap="2em" align="center">
                     {navItems.map((item) => (
                       <HStack color="textWhite">
@@ -218,7 +217,9 @@ export default function Header() {
                   <Icon
                     size="2xl"
                     color="textWhite"
-                    _hover={{ background: "accent" }}
+                    _hover={{
+                      cursor: "pointer",
+                    }}
                   >
                     <IoClose />
                   </Icon>
