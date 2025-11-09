@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ChakraProvider value={customSystem}>
           <ThemeProvider attribute="class" disableTransitionOnChange>
-            {/* <Header /> */}
+            <Header />
             {children}
             <Footer />
           </ThemeProvider>

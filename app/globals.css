@@ -33,5 +33,6 @@ body {
 }
 
 section {
+  scroll-snap-align: start;
   scroll-margin-top: 2em;
 }

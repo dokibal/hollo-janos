@@ -48,7 +48,7 @@ const handler: Handler = async function (event: HandlerEvent) {
     requestDate: dateNow,
   };
   await sendEmail({
-    from: quotation.email,
+    from: email,
     to: email,
     subject: "Új árajánlatkérés érkezett a weboldalról",
     template: "quotation_notification",

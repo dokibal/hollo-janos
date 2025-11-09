@@ -22,7 +22,7 @@ export default function Page() {
           />
           <Box position="absolute" inset="0" bg="rgba(255,255,255,0.8)" />
         </Box>
-        <Box position="relative" zIndex={1}>
+        <Box position="relative" zIndex={1} scrollSnapType="y mandatory">
           <About />
           <Box
             h="7em"
