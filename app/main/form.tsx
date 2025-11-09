@@ -48,6 +48,7 @@ export default function Form() {
       color="primary"
       borderRadius="1em"
       width="100%"
+      height="fit"
       padding="2em"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
