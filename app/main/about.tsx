@@ -89,6 +89,7 @@ export default function About() {
                 >
                   {advantages.map((a) => (
                     <List.Item
+                      key={a}
                       padding="0.25em"
                       _hover={{
                         background: "accent",

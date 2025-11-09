@@ -68,7 +68,7 @@ export const ServiceCard = ({
       <Card.Body>
         <List.Root variant="plain">
           {content.map((c) => (
-            <List.Item display="flex" alignItems="center" gap="0.5em">
+            <List.Item key={c} display="flex" alignItems="center" gap="0.5em">
               <List.Indicator>
                 <Icon size="lg" color="accent">
                   <MdBolt />

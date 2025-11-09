@@ -71,7 +71,13 @@ export default function Header() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+            const id: string = entry.target.id;
+            setActiveSection(id);
+
+            if (window.location.hash !== `#${id}`) {
+              console.log(`Replace state...`);
+              history.replaceState(null, "", `#${id}`);
+            }
           }
         });
       },
@@ -85,7 +91,7 @@ export default function Header() {
 
   return (
     <Box
-      bg="textWhite"
+      bg="white"
       p="0.5em"
       height="3em"
       width="100%"
@@ -118,7 +124,7 @@ export default function Header() {
             <Link key={item.to} href={item.to}>
               <Button
                 fontSize="lg"
-                background="white"
+                background="none"
                 color={
                   item.to.substring(2) === activeSection
                     ? "accent"
@@ -164,30 +170,24 @@ export default function Header() {
               <Drawer.Content bg="primary">
                 <Drawer.Body mt="2em">
                   <VStack gap="2em" align="center">
-                    {navItems.map((item) => {
-                      const color: string =
-                        item.to.substring(2) === activeSection
-                          ? "accent"
-                          : "textWhite";
-                      return (
-                        <HStack color={color}>
-                          {item.icon}
-                          <ChakraLink
-                            as={Link}
-                            cursor="pointer"
-                            _hover={{ color: "accent" }}
-                            color={color}
-                            textDecoration="none"
-                            outline="none"
-                            fontSize="xl"
-                            href={item.to}
-                            onClick={() => setMenuOpen(false)}
-                          >
-                            {item.title}
-                          </ChakraLink>
-                        </HStack>
-                      );
-                    })}
+                    {navItems.map((item) => (
+                      <HStack color="textWhite">
+                        {item.icon}
+                        <ChakraLink
+                          as={Link}
+                          cursor="pointer"
+                          _hover={{ color: "accent" }}
+                          color="textWhite"
+                          textDecoration="none"
+                          outline="none"
+                          fontSize="xl"
+                          href={item.to}
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {item.title}
+                        </ChakraLink>
+                      </HStack>
+                    ))}
                     <Flex
                       flexDirection="column"
                       w="full"
@@ -196,7 +196,7 @@ export default function Header() {
                     >
                       <ChakraLink
                         as={Link}
-                        href="#contact"
+                        href="/#contact"
                         onClick={() => setMenuOpen(false)}
                         textDecoration="none"
                         outline="none"

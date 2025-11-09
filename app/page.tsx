@@ -11,17 +11,17 @@ export default function Page() {
     <Box position="relative">
       <Box minH="100vh" overflow="hidden">
         <LandingPage />
-        <Box
-          position="absolute"
-          inset="0"
-          bgImage="url('/background.svg')"
-          bgRepeat="repeat"
-          bgSize="200px"
-          bgColor="white"
-          bgBlendMode="multiply"
-          opacity={0.25}
-          zIndex={0}
-        />
+        <Box position="absolute" inset="0" zIndex={0}>
+          <Box
+            position="absolute"
+            inset="0"
+            bgImage="url('/background.svg')"
+            bgRepeat="repeat"
+            bgSize="200px"
+            bgColor="white"
+          />
+          <Box position="absolute" inset="0" bg="rgba(255,255,255,0.8)" />
+        </Box>
         <Box position="relative" zIndex={1}>
           <About />
           <Box

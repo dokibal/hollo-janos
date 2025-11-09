@@ -25,8 +25,8 @@ export default function Locations() {
     >
       <Flex flexDirection="column">
         <Box spaceY="1em" color="textWhite" marginBottom="2em">
-          {locations.keys().map((k) => (
-            <Box>
+          {Array.from(locations.keys()).map((k) => (
+            <Box key={k}>
               <Heading color="accent" size="xl" marginBottom="0.5em">
                 {k}:{" "}
               </Heading>
