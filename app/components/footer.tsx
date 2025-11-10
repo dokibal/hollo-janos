@@ -26,7 +26,7 @@ export default function Footer() {
       p="0.5em"
       color="textWhite"
       fontWeight="light"
-      fontSize="sm"
+      fontSize={{ base: "sm", md: "md" }}
       justify="center"
     >
       <SimpleGrid columns={2} gap="1em">

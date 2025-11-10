@@ -52,7 +52,7 @@ export default function Form() {
       padding="2em"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
-      <Text fontSize="xl">
+      <Text fontSize={{ base: "lg", md: "xl" }}>
         ✅ Árajánlatkérés sikeresen elküldve! Köszönjük, hogy megkeresett
         bennünket. Hamarosan felvesszük Önnel a kapcsolatot a megadott
         elérhetőségek egyikén.
@@ -63,7 +63,7 @@ export default function Form() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box spaceY="1em">
           <Field.Root invalid={Boolean(errors.name)}>
-            <Field.Label htmlFor="name">
+            <Field.Label htmlFor="name" fontSize={{ base: "md", md: "lg" }}>
               Név <RequiredIndicator />
             </Field.Label>
             <Input
@@ -75,7 +75,7 @@ export default function Form() {
             </Field.ErrorText>
           </Field.Root>
           <Field.Root invalid={Boolean(errors.email)}>
-            <Field.Label htmlFor="email">
+            <Field.Label htmlFor="email" fontSize={{ base: "md", md: "lg" }}>
               E-mail <RequiredIndicator />
             </Field.Label>
             <Input
@@ -91,7 +91,12 @@ export default function Form() {
             </Field.ErrorText>
           </Field.Root>
           <Field.Root invalid={Boolean(errors.phoneNumber)}>
-            <Field.Label htmlFor="phoneNumber">Telefonszám</Field.Label>
+            <Field.Label
+              htmlFor="phoneNumber"
+              fontSize={{ base: "md", md: "lg" }}
+            >
+              Telefonszám
+            </Field.Label>
             <Input
               id="phoneNumber"
               {...register("phoneNumber", {
@@ -117,7 +122,7 @@ export default function Form() {
               borderColor="red"
             >
               <Select.HiddenSelect />
-              <Select.Label>
+              <Select.Label fontSize={{ base: "md", md: "lg" }}>
                 Helyszín <RequiredIndicator />
               </Select.Label>
               <Select.Control>
@@ -152,7 +157,7 @@ export default function Form() {
             </Field.ErrorText>
           </Field.Root>
           <Field.Root invalid={Boolean(errors.message)}>
-            <Field.Label>
+            <Field.Label htmlFor="messaged" fontSize={{ base: "md", md: "lg" }}>
               Leírás <RequiredIndicator />
             </Field.Label>
             <Textarea
@@ -168,18 +173,21 @@ export default function Form() {
               {...register("message", {
                 required: "Az üzenet megadása kötelező",
               })}
+              fontSize={{ base: "md", md: "lg" }}
             />
-            <Field.HelperText>Maximum 1000 karakter</Field.HelperText>
+            <Field.HelperText fontSize="sm">
+              Maximum 1000 karakter
+            </Field.HelperText>
             <Field.ErrorText>
               {errors.message && errors.message.message}
             </Field.ErrorText>
           </Field.Root>
         </Box>
         <Text
-          fontSize="sm"
           width="100%"
           marginTop="clamp(1rem, 2vw, 3rem)"
           marginBottom="0.5em"
+          fontSize={{ base: "md", md: "lg" }}
         >
           Az űrlap elküldésével elfogadja az{" "}
           <Link

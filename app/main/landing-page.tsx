@@ -40,7 +40,7 @@ export default function LandingPage() {
             size={{ base: "4xl", md: "5xl" }}
             textAlign="center"
           >
-            Profi villanyszerelés gyorsan és megbízhatóan
+            Profi villanyszerelés Tatabányán és környékén
           </Heading>
           <Heading
             color="accent"
@@ -50,7 +50,7 @@ export default function LandingPage() {
             marginBottom="2em"
             textAlign="center"
           >
-            Tatabányán és környékén ingyenes kiszállással
+            Ingyenes kiszállás, versenyképes árak és szakszerű kivitelezés
           </Heading>
           <Box>
             <Button asChild>
@@ -60,7 +60,7 @@ export default function LandingPage() {
                 textDecoration="none"
                 outline="none"
               >
-                Vegye fel velünk a kapcsolatot
+                Vegye fel velünk a kapcsolatot még ma!
               </ChakraLink>
             </Button>
           </Box>

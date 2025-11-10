@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           name="description"
           content={`${companyName}: Megbízható villanyszerelés Tatabányán és környékén. Lakossági és ipari villanyszerelési szolgáltatások gyors, szakszerű kivitelezéssel.`}
         />
-        <title>{`${companyName} | Villanyszerelés Tatabánya környékén`}</title>
+        <title>{`${companyName} | Villanyszerelés Tatabányán és környékén`}</title>
       </head>
       <body>
         <ChakraProvider value={customSystem}>

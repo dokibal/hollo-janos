@@ -27,7 +27,11 @@ export default function Locations() {
         <Box spaceY="1em" color="textWhite" marginBottom="2em">
           {Array.from(locations.keys()).map((k) => (
             <Box key={k}>
-              <Heading color="accent" size="xl" marginBottom="0.5em">
+              <Heading
+                color="accent"
+                fontSize={{ base: "lg", md: "xl" }}
+                marginBottom="0.5em"
+              >
                 {k}:{" "}
               </Heading>
               <Box display="inline">
@@ -38,10 +42,11 @@ export default function Locations() {
                       color={
                         importantLocations.includes(l) ? "accent" : "inherit"
                       }
+                      fontSize={{ base: "md", md: "lg" }}
                     >
                       {l}
                     </Text>
-                    <Text display="inline">
+                    <Text display="inline" fontSize={{ base: "md", md: "lg" }}>
                       {index < Number(locations.get(k)?.length) - 1 ? ", " : ""}
                     </Text>
                   </div>

@@ -44,7 +44,6 @@ export default function About() {
               paddingTop="5em"
               paddingBottom="5em"
               boxShadow="0 4px 20px 0 rgba(15, 17, 19, 0.7), 0 4px 20px 0 rgba(15, 17, 19, 0.7)"
-              fontSize={{ base: "lg", md: "xl" }}
               padding="2em 1em 2em 1em"
             >
               <Box
@@ -53,9 +52,17 @@ export default function About() {
                 width="100%"
                 marginBottom="0.5em"
               >
-                <Heading size="lg">Miért válasszon minket?</Heading>
+                <Heading fontSize={{ base: "lg", md: "xl" }}>
+                  Miért válasszon minket?
+                </Heading>
               </Box>
-              <Text as="p" textStyle="md" fontWeight="normal" marginLeft="1em">
+              <Text
+                as="p"
+                textStyle="md"
+                fontWeight="normal"
+                marginLeft="1em"
+                fontSize={{ base: "md", md: "lg" }}
+              >
                 Ha tapasztalt, precíz és megbízható villanyszerelőt keres
                 Tatabányán vagy a környező településeken, jó helyen jár! <br />
                 <br />
@@ -73,7 +80,9 @@ export default function About() {
                 marginTop="0.5em"
                 marginBottom="0.5em"
               >
-                <Heading size="lg">Amit kínálunk: </Heading>
+                <Heading fontSize={{ base: "lg", md: "xl" }}>
+                  Amit kínálunk:{" "}
+                </Heading>
               </Box>
               <Box
                 display="flex"
@@ -96,6 +105,7 @@ export default function About() {
                         color: "textWhite",
                         borderRadius: "1em",
                       }}
+                      fontSize={{ base: "md", md: "lg" }}
                     >
                       {a}
                     </List.Item>
@@ -107,6 +117,7 @@ export default function About() {
                 textStyle="md"
                 fontWeight="normal"
                 marginBottom="1em"
+                fontSize={{ base: "md", md: "lg" }}
               >
                 Célunk, hogy ne csak egy szolgáltatást, hanem biztonságot és
                 nyugalmat nyújtsunk Önnek. <br />

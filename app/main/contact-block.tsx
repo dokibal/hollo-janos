@@ -28,7 +28,10 @@ export default function ContactBlock({
       padding="2em 1em 2em 1em"
     >
       <Box display="flex" justifyContent="left" width="100%">
-        <Heading marginBottom="clamp(1rem, 2vw, 2rem)" size="xl">
+        <Heading
+          marginBottom="clamp(1rem, 2vw, 2rem)"
+          fontSize={{ base: "xl", md: "2xl" }}
+        >
           {title}
         </Heading>
       </Box>

@@ -61,7 +61,7 @@ export const ServiceCard = ({
       <Card.Header fontSize="lg" fontWeight="semibold">
         <HStack>
           {icon}
-          {title}
+          <Heading fontSize={{ base: "lg", md: "xl" }}>{title}</Heading>
         </HStack>
       </Card.Header>
       <Card.Body>
@@ -81,6 +81,7 @@ export const ServiceCard = ({
                   color: "textWhite",
                   borderRadius: "1em",
                 }}
+                fontSize={{ base: "md", md: "lg" }}
               >
                 {c}
               </Text>
@@ -100,7 +101,11 @@ export default function Services() {
         minH={{ base: "auto", md: "100vh" }}
         padding="clamp(1rem, 4vw, 3rem)"
       >
-        <Heading size="2xl" marginBottom="2em" color="textWhite">
+        <Heading
+          fontSize={{ base: "xl", md: "2xl" }}
+          marginBottom="2em"
+          color="textWhite"
+        >
           Teljeskörű villanyszerelési megoldások
         </Heading>
         <SimpleGrid gap="4em" columns={{ base: 1, md: 2 }}>
