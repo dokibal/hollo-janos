@@ -43,6 +43,7 @@ export default function LandingPage() {
             Profi villanyszerelés Tatabányán és környékén
           </Heading>
           <Heading
+            as="h2"
             color="accent"
             textShadow="black"
             size={{ base: "2xl", md: "3xl" }}

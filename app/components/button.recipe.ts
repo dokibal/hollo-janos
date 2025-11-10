@@ -14,6 +14,7 @@ export const buttonRecipe = defineRecipe({
     borderRadius: "0.25em",
     padding: "0.5em",
     cursor: "pointer",
+    fontSize: { base: "md", md: "lg" },
 
     _hover: { background: "accentDark", fontWeight: "bolder", color: "white" },
 
