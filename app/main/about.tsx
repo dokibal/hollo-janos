@@ -55,7 +55,7 @@ export default function About() {
               >
                 <Heading size="lg">Miért válasszon minket?</Heading>
               </Box>
-              <Text textStyle="md" fontWeight="normal" marginLeft="1em">
+              <Text as="p" textStyle="md" fontWeight="normal" marginLeft="1em">
                 Ha tapasztalt, precíz és megbízható villanyszerelőt keres
                 Tatabányán vagy a környező településeken, jó helyen jár! <br />
                 <br />
@@ -102,7 +102,12 @@ export default function About() {
                   ))}
                 </List.Root>
               </Box>
-              <Text textStyle="md" fontWeight="normal" marginBottom="1em">
+              <Text
+                as="p"
+                textStyle="md"
+                fontWeight="normal"
+                marginBottom="1em"
+              >
                 Célunk, hogy ne csak egy szolgáltatást, hanem biztonságot és
                 nyugalmat nyújtsunk Önnek. <br />
                 Válasszon minket, ha fontos Önnek a precizitás, a biztonság és a

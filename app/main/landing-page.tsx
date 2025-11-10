@@ -1,6 +1,6 @@
-import { Box, Heading, Link as ChakraLink } from "@chakra-ui/react";
-import { Button } from "../components/button";
+import { Box, Link as ChakraLink, Heading } from "@chakra-ui/react";
 import Link from "next/link";
+import { Button } from "../components/button";
 
 export default function LandingPage() {
   return (
@@ -34,6 +34,7 @@ export default function LandingPage() {
           alignItems="center"
         >
           <Heading
+            as="h1"
             color="textWhite"
             textShadow="black"
             size={{ base: "4xl", md: "5xl" }}

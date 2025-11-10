@@ -29,7 +29,7 @@ export default function Footer() {
       fontSize="sm"
       justify="center"
     >
-      <SimpleGrid columns={3} gap="1em">
+      <SimpleGrid columns={2} gap="1em">
         <GridItem>
           <VStack>
             <ChakraLink
@@ -44,12 +44,6 @@ export default function Footer() {
               </Icon>{" "}
               {phoneNumber}
             </ChakraLink>
-
-            <Text color="inherit">© 2025 {companyName}</Text>
-          </VStack>
-        </GridItem>
-        <GridItem>
-          <VStack>
             <ChakraLink
               as={Link}
               href={emailLink}
@@ -63,21 +57,6 @@ export default function Footer() {
               {email}
             </ChakraLink>
             <ChakraLink
-              display="flex"
-              color="inherit"
-              as={Link}
-              href="/privacy-policy"
-              target="_blank"
-              textDecoration="underline"
-              outline="none"
-            >
-              Adatkezelési tájékoztató
-            </ChakraLink>
-          </VStack>
-        </GridItem>
-        <GridItem>
-          <VStack>
-            <ChakraLink
               as={Link}
               href={facebookLink}
               color="inherit"
@@ -88,6 +67,21 @@ export default function Footer() {
                 <FaFacebookF />
               </Icon>{" "}
               {facebook}
+            </ChakraLink>
+          </VStack>
+        </GridItem>
+        <GridItem>
+          <VStack>
+            <ChakraLink
+              display="flex"
+              color="inherit"
+              as={Link}
+              href="/privacy-policy"
+              target="_blank"
+              textDecoration="underline"
+              outline="none"
+            >
+              Adatkezelési tájékoztató
             </ChakraLink>
             <ChakraLink
               display="flex"
@@ -100,6 +94,7 @@ export default function Footer() {
             >
               Impresszum
             </ChakraLink>
+            <Text color="inherit">© 2025 {companyName}</Text>
           </VStack>
         </GridItem>
       </SimpleGrid>
