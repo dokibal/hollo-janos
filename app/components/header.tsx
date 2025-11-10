@@ -64,7 +64,7 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll("section:not(#quotation)");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -195,7 +195,7 @@ export default function Header() {
                     >
                       <ChakraLink
                         as={Link}
-                        href="/#contact"
+                        href="/#quotation"
                         onClick={() => setMenuOpen(false)}
                         textDecoration="none"
                         outline="none"
