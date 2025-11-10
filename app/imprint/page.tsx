@@ -20,17 +20,19 @@ export default function PrivacyPolicy() {
           {companyOwner} <br />
           (Egyéni vállalkozó)
         </Text>
-        <Text fontWeight="bold"> Székhely:</Text> <Text>{address}</Text>
+        <Text fontWeight="bold">Székhely:</Text> <Text>{address}</Text>
         <Text fontWeight="bold">Nyilvántartási szám:</Text>
-        <Text>12345678</Text>
-        <Text fontWeight="bold">Adószám:</Text> <Text>12345678-1-42</Text>
+        <Text>61200405</Text>
+        <Text fontWeight="bold">Adószám:</Text> <Text>91465126-1-31</Text>
         <Text fontWeight="bold">E-mail:</Text> <Text>{email}</Text>
         <Text fontWeight="bold">Telefon:</Text>
         <Text>{phoneNumber}</Text>
-        <Text fontWeight="bold"> A tevékenység jellege:</Text>
-        <Text>Villanyszerelési és karbantartási szolgáltatások</Text>
+        <Text fontWeight="bold">A tevékenység jellege:</Text>
+        <Text>432101 - Egyéb villanyszerelés</Text>
         <Text fontWeight="bold">Kamarai tagság:</Text>
-        <Text>Budapesti Kereskedelmi és Iparkamara tagja </Text>
+        <Text>Komárom-Esztergom Vármegyei Kereskedelmi és Iparkamara</Text>
+        <Text fontWeight="bold">Kamarai nyilvántartási száma:</Text>
+        <Text>KO91465126</Text>
         <Text fontWeight="bold">Adózási forma:</Text>
         <Text>Alanyi adómentes</Text>
       </Box>
