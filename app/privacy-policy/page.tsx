@@ -1,6 +1,6 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { JSX } from "react";
-import { email, phoneNumber } from "../constants";
+import { address, companyOwner, email, phoneNumber } from "../constants";
 
 type PrivacyPolicySectionProps = {
   index: number;
@@ -15,7 +15,7 @@ const PrivacyPolicySection = ({
 }: Readonly<PrivacyPolicySectionProps>) => {
   return (
     <Box pt="0.5em" pb="0.5em" textAlign="justify">
-      <Heading size="md">{`${index}. ${title}`}</Heading>
+      <Heading size="lg">{`${index}. ${title}`}</Heading>
       {children}
     </Box>
   );
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
   return (
     <Box
       minH={{ base: "auto", md: "100vh" }}
-      p="2em"
+      padding="clamp(1rem, 4vw, 3rem)"
       pt="4em"
       bg="white"
       color="secondary"
@@ -33,13 +33,16 @@ export default function PrivacyPolicy() {
       display="flex"
       alignItems="center"
       justifyContent="center"
+      textStyle="md"
     >
       <Box>
-        <Heading>Adatkezelési tájékoztató </Heading>
+        <Heading textStyle={{ base: "lg", md: "2xl" }}>
+          Adatkezelési tájékoztató
+        </Heading>
         <PrivacyPolicySection index={1} title="Az adatkezelő adatai">
           <Text>
-            Cégnév: Holló János e.v. <br />
-            Székhely: 2851 Környe November utca 20.
+            Cégnév: {companyOwner} <br />
+            Székhely: {address}
             <br />
             E-mail: {email} <br />
             Telefon: {phoneNumber}

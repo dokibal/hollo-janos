@@ -1,12 +1,14 @@
 import {
-  Text,
   Link as ChakraLink,
-  SimpleGrid,
   GridItem,
   Icon,
+  SimpleGrid,
+  Text,
   VStack,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { FaFacebookF, FaPhoneAlt } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
 import {
   companyName,
   email,
@@ -16,8 +18,6 @@ import {
   phoneNumber,
   phoneNumberLink,
 } from "../constants";
-import { FaFacebookF, FaPhoneAlt } from "react-icons/fa";
-import { MdOutlineEmail } from "react-icons/md";
 
 export default function Footer() {
   return (
@@ -29,7 +29,7 @@ export default function Footer() {
       fontSize="sm"
       justify="center"
     >
-      <SimpleGrid columns={2} gap="1em">
+      <SimpleGrid columns={3} gap="1em">
         <GridItem>
           <VStack>
             <ChakraLink
@@ -45,18 +45,7 @@ export default function Footer() {
               {phoneNumber}
             </ChakraLink>
 
-            <ChakraLink
-              as={Link}
-              href={facebookLink}
-              color="inherit"
-              textDecoration="none"
-              outline="none"
-            >
-              <Icon size={{ base: "sm", md: "md" }} color="inherit">
-                <FaFacebookF />
-              </Icon>{" "}
-              {facebook}
-            </ChakraLink>
+            <Text color="inherit">© 2025 {companyName}</Text>
           </VStack>
         </GridItem>
         <GridItem>
@@ -86,8 +75,34 @@ export default function Footer() {
             </ChakraLink>
           </VStack>
         </GridItem>
+        <GridItem>
+          <VStack>
+            <ChakraLink
+              as={Link}
+              href={facebookLink}
+              color="inherit"
+              textDecoration="none"
+              outline="none"
+            >
+              <Icon size={{ base: "sm", md: "md" }} color="inherit">
+                <FaFacebookF />
+              </Icon>{" "}
+              {facebook}
+            </ChakraLink>
+            <ChakraLink
+              display="flex"
+              color="inherit"
+              as={Link}
+              href="/imprint"
+              target="_blank"
+              textDecoration="underline"
+              outline="none"
+            >
+              Impresszum
+            </ChakraLink>
+          </VStack>
+        </GridItem>
       </SimpleGrid>
-      <Text color="inherit">© 2025 {companyName}</Text>
     </VStack>
   );
 }

@@ -3,14 +3,14 @@ import {
   Flex,
   GridItem,
   Heading,
+  Image,
   List,
   SimpleGrid,
   Text,
   VStack,
-  Image,
 } from "@chakra-ui/react";
-import { Button } from "../components/button";
 import Link from "next/link";
+import { Button } from "../components/button";
 
 const advantages: string[] = [
   "⚡ Gyors, pontos és szakszerű munkavégzés",
@@ -127,6 +127,7 @@ export default function About() {
                 width="60%"
                 boxShadow="0 4px 20px 0 rgba(15, 17, 19, 0.7), 0 4px 20px 0 rgba(15, 17, 19, 0.7)"
                 objectFit="cover"
+                alt="Villanyszerelő szakember munkaruhában"
               />
             </VStack>
           </GridItem>

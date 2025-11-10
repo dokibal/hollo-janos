@@ -1,27 +1,26 @@
-import {
-  Flex,
-  Link as ChakraLink,
-  Box,
-  Drawer,
-  Button,
-  Portal,
-  IconButton,
-  HStack,
-  VStack,
-  Heading,
-  Image,
-  Icon,
-} from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { companyName, phoneNumberLink } from "../constants";
-import { useEffect, useState } from "react";
-import { Button as CustomButton } from "./button";
-import Link from "next/link";
-import { FaInfoCircle } from "react-icons/fa";
-import { MdElectricalServices } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
+import {
+  Box,
+  Button,
+  Link as ChakraLink,
+  Drawer,
+  Flex,
+  Heading,
+  HStack,
+  Icon,
+  IconButton,
+  Image,
+  Portal,
+  VStack,
+} from "@chakra-ui/react";
 import { JSX } from "@emotion/react/jsx-runtime";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { FaInfoCircle, FaPhoneAlt } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { MdElectricalServices } from "react-icons/md";
+import { companyName, phoneNumberLink } from "../constants";
+import { Button as CustomButton } from "./button";
 
 type NavItem = {
   to: string;
@@ -113,6 +112,7 @@ export default function Header() {
               height="2em"
               width="auto"
               objectFit="contain"
+              alt="Fekete holló sárga vezetéken"
             />
             <Heading color="primary">{companyName}</Heading>
           </ChakraLink>

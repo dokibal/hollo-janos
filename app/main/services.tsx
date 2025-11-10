@@ -1,20 +1,19 @@
 import {
   Box,
   Card,
+  Flex,
   GridItem,
   Heading,
-  Icon,
-  List,
-  Text,
-  SimpleGrid,
   HStack,
+  Icon,
   Image,
-  Flex,
+  List,
+  SimpleGrid,
+  Text,
 } from "@chakra-ui/react";
 import { JSX } from "@emotion/react/jsx-runtime";
-import { MdBolt } from "react-icons/md";
-import { MdElectricalServices } from "react-icons/md";
 import { FaLightbulb } from "react-icons/fa";
+import { MdBolt, MdElectricalServices } from "react-icons/md";
 
 const personal: string[] = [
   "Új elektromos hálózat kiépítése családi házakban, lakásokban",
@@ -134,6 +133,7 @@ export default function Services() {
             marginTop="4em"
             width={{ base: "100%", md: "40%" }}
             borderRadius="1em"
+            alt="Villanyszerelő szerszámok, izzók, szigetelő szalagok"
           />
         </Flex>
       </Box>

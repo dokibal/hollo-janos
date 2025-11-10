@@ -8,13 +8,13 @@ import {
   VStack,
   createListCollection,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Input } from "../components/input";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import { Button } from "../components/button";
+import { Input } from "../components/input";
 import { locations } from "../locations";
 import { Quotation } from "../quotation";
-import Link from "next/link";
-import { isValidPhoneNumber } from "react-phone-number-input";
 import ContactBlock from "./contact-block";
 
 const townCollection = createListCollection({
@@ -63,7 +63,7 @@ export default function Form() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box spaceY="1em">
           <Field.Root invalid={Boolean(errors.name)}>
-            <Field.Label>
+            <Field.Label htmlFor="name">
               Név <RequiredIndicator />
             </Field.Label>
             <Input
@@ -75,7 +75,7 @@ export default function Form() {
             </Field.ErrorText>
           </Field.Root>
           <Field.Root invalid={Boolean(errors.email)}>
-            <Field.Label>
+            <Field.Label htmlFor="email">
               E-mail <RequiredIndicator />
             </Field.Label>
             <Input
@@ -91,7 +91,7 @@ export default function Form() {
             </Field.ErrorText>
           </Field.Root>
           <Field.Root invalid={Boolean(errors.phoneNumber)}>
-            <Field.Label>Telefonszám</Field.Label>
+            <Field.Label htmlFor="phoneNumber">Telefonszám</Field.Label>
             <Input
               id="phoneNumber"
               {...register("phoneNumber", {

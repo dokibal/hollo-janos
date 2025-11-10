@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import ContactBlock from "./contact-block";
 import { locations } from "../locations";
+import ContactBlock from "./contact-block";
 
 const importantLocations: string[] = [
   "Tatabánya",
@@ -30,9 +30,9 @@ export default function Locations() {
               <Heading color="accent" size="xl" marginBottom="0.5em">
                 {k}:{" "}
               </Heading>
-              <Text display="inline">
-                {locations.get(k)?.map((l, index) => (
-                  <>
+              <Box display="inline">
+                {locations.get(k)?.map((l: string, index: number) => (
+                  <div key={l} style={{ display: "inline" }}>
                     <Text
                       display="inline"
                       color={
@@ -44,9 +44,9 @@ export default function Locations() {
                     <Text display="inline">
                       {index < Number(locations.get(k)?.length) - 1 ? ", " : ""}
                     </Text>
-                  </>
+                  </div>
                 ))}
-              </Text>
+              </Box>
             </Box>
           ))}
         </Box>
@@ -57,6 +57,7 @@ export default function Locations() {
           justifyContent="center"
         >
           <iframe
+            title="Térkép Tatabányával középen nagyjából 30 kilométeres sugárral"
             loading="lazy"
             style={{
               width: "100%",
