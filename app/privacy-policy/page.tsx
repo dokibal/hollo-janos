@@ -36,7 +36,11 @@ export default function PrivacyPolicy() {
       textStyle="md"
     >
       <Box>
-        <Heading textStyle={{ base: "lg", md: "2xl" }}>
+        <Heading
+          as="h3"
+          textStyle={{ base: "lg", md: "2xl" }}
+          marginBottom="1em"
+        >
           Adatkezelési tájékoztató
         </Heading>
         <PrivacyPolicySection index={1} title="Az adatkezelő adatai">

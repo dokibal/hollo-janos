@@ -102,7 +102,7 @@ export default function About() {
                       padding="0.25em"
                       _hover={{
                         background: "accent",
-                        color: "textWhite",
+                        color: "white",
                         borderRadius: "1em",
                       }}
                       fontSize={{ base: "md", md: "lg" }}

@@ -78,7 +78,7 @@ export const ServiceCard = ({
                 width="100%"
                 _hover={{
                   background: "accent",
-                  color: "textWhite",
+                  color: "white",
                   borderRadius: "1em",
                 }}
                 fontSize={{ base: "md", md: "lg" }}
@@ -104,7 +104,7 @@ export default function Services() {
         <Heading
           fontSize={{ base: "xl", md: "2xl" }}
           marginBottom="2em"
-          color="textWhite"
+          color="white"
         >
           Teljeskörű villanyszerelési megoldások
         </Heading>

@@ -12,7 +12,11 @@ export default function PrivacyPolicy() {
       textStyle={{ base: "md", md: "lg" }}
     >
       <Box>
-        <Heading textStyle={{ base: "lg", md: "2xl" }} marginBottom="2em">
+        <Heading
+          as="h3"
+          textStyle={{ base: "lg", md: "2xl" }}
+          marginBottom="1em"
+        >
           Impresszum
         </Heading>
         <Text fontWeight="bold">A weboldal üzemeltetője</Text>
