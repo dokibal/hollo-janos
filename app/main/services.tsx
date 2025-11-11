@@ -137,6 +137,7 @@ export default function Services() {
             src="tools.webp"
             marginTop="4em"
             width={{ base: "100%", md: "40%" }}
+            height="auto"
             borderRadius="1em"
             alt="Villanyszerelő szerszámok, izzók, szigetelő szalagok"
           />

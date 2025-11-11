@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
   data-scroll-behavior: smooth;
+  overflow-anchor: none;
 }
 
 html * {

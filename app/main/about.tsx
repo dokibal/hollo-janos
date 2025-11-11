@@ -141,6 +141,7 @@ export default function About() {
                 src="profile.webp"
                 borderRadius="1em"
                 width="60%"
+                height="auto"
                 boxShadow="0 4px 20px 0 rgba(15, 17, 19, 0.7), 0 4px 20px 0 rgba(15, 17, 19, 0.7)"
                 objectFit="cover"
                 alt="Villanyszerelő szakember munkaruhában"
