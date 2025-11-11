@@ -1,17 +1,15 @@
 "use client";
 
 import { Box } from "@chakra-ui/react";
-import LandingPage from "./main/landing-page";
+import About from "./main/about";
+import Contact from "./main/contact";
+import Services from "./main/services";
 
 export default function Page() {
   return (
     <Box position="relative">
       <Box minH="100vh" overflow="hidden">
-        <LandingPage />
-        <LandingPage />
-        <LandingPage />
-        <LandingPage />
-        <LandingPage />
+        {/* <LandingPage /> */}
         <Box position="absolute" inset="0" zIndex={0}>
           <Box
             position="absolute"
@@ -23,7 +21,7 @@ export default function Page() {
           />
           <Box position="absolute" inset="0" bg="rgba(255,255,255,0.8)" />
         </Box>
-        {/* <Box position="relative" zIndex={1}>
+        <Box position="relative" zIndex={1}>
           <About />
           <Box
             h="7em"
@@ -37,7 +35,7 @@ export default function Page() {
             opacity={0.4}
           ></Box>
           <Contact />
-        </Box> */}
+        </Box>
       </Box>
     </Box>
   );
