@@ -1,7 +1,7 @@
 import { Flex, GridItem, SimpleGrid } from "@chakra-ui/react";
-import Form from "./form";
 import ContactUs from "./contact-us";
 import Locations from "./locations";
+import Form from "./quotation";
 
 export default function Contact() {
   return (
