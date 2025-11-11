@@ -6,7 +6,7 @@ export default function LandingPage() {
   return (
     <section id="">
       <Box
-        minHeight={{ base: "100dvh", md: "100vh" }}
+        height={{ base: "100dvh", md: "100vh" }}
         display="flex"
         alignItems="center"
         justifyContent="center"
