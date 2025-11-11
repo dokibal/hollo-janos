@@ -16,7 +16,7 @@ import { Quotation } from "../../app/quotation";
 const mailgun = new Mailgun(formData);
 const mg = mailgun.client({
   username: "api",
-  key: process.env.NETLIFY_EMAIL_PROVIDER_API_KEY!,
+  key: process.env.NETLIFY_EMAILS_PROVIDER_API_KEY!,
 });
 
 const handler: Handler = async function (event: HandlerEvent) {
