@@ -16,7 +16,7 @@ import { Quotation } from "../../app/quotation";
 const mailgun = new Mailgun(formData);
 const mg = mailgun.client({
   username: "api",
-  key: process.env.NETLIFY_EMAILS_PROVIDER_API_KEY!,
+  key: process.env.MAILGUN_API_KEY!,
 });
 
 const handler: Handler = async function (event: HandlerEvent) {
@@ -41,7 +41,7 @@ const handler: Handler = async function (event: HandlerEvent) {
       facebookLink: facebookLink,
     };
 
-    await mg.messages.create(process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!, {
+    await mg.messages.create(process.env.MAILGUN_DOMAIN!, {
       from: email,
       to: quotation.email,
       subject: `Árajánlatkérés visszaigazolása - ${companyName}`,
@@ -56,7 +56,7 @@ const handler: Handler = async function (event: HandlerEvent) {
       ...quotation,
       requestDate: dateNow,
     };
-    await mg.messages.create(process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!, {
+    await mg.messages.create(process.env.MAILGUN_DOMAIN!, {
       from: email,
       to: email,
       subject: `Árajánlatkérés - ${quotation.name}`,
