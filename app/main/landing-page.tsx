@@ -6,11 +6,25 @@ export default function LandingPage() {
   return (
     <section id="">
       <Box
-        height={{ base: "100dvh", md: "100vh" }}
+        minH={{ base: "auto", md: "100vh" }}
         display="flex"
         alignItems="center"
         justifyContent="center"
+        position="relative"
+        backgroundColor="white"
+        backgroundImage="url('landing-background.webp')"
+        backgroundSize="cover"
+        backgroundPosition="center"
+        zIndex={1}
       >
+        <Box
+          position="absolute"
+          inset="0"
+          backdropFilter="blur(5px)"
+          bg="rgba(0,0,0,0.6)"
+          zIndex={0}
+        />
+
         <Box
           position="relative"
           zIndex={1}
