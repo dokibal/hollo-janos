@@ -6,7 +6,7 @@ export default function LandingPage() {
   return (
     <section id="">
       <Box
-        minH={{ base: "auto", md: "100vh" }}
+        minH={{ base: "100lvh", md: "100vh" }}
         display="flex"
         alignItems="center"
         justifyContent="center"
