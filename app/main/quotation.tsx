@@ -144,7 +144,9 @@ export default function Form() {
                       {townCollection.items.map(
                         (t: { label: string; value: string }) => (
                           <Select.Item item={t} key={t.value}>
-                            {t.label}
+                            <Text fontSize={{ base: "md", md: "lg" }}>
+                              {t.label}
+                            </Text>
                             <Select.ItemIndicator />
                           </Select.Item>
                         )
