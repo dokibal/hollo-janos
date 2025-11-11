@@ -3,13 +3,14 @@
 import { Box } from "@chakra-ui/react";
 import About from "./main/about";
 import Contact from "./main/contact";
+import LandingPage from "./main/landing-page";
 import Services from "./main/services";
 
 export default function Page() {
   return (
     <Box position="relative">
       <Box minH="100vh" overflow="hidden">
-        {/* <LandingPage /> */}
+        <LandingPage />
         <Box position="absolute" inset="0" zIndex={0}>
           <Box
             position="absolute"
