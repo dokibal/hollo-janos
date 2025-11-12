@@ -140,11 +140,18 @@ export default function Form() {
                 </Select.Control>
                 <Portal>
                   <Select.Positioner>
-                    <Select.Content>
+                    <Select.Content background="white">
                       {townCollection.items.map(
                         (t: { label: string; value: string }) => (
-                          <Select.Item item={t} key={t.value}>
-                            <Text fontSize={{ base: "md", md: "lg" }}>
+                          <Select.Item
+                            background="white"
+                            item={t}
+                            key={t.value}
+                          >
+                            <Text
+                              fontSize={{ base: "md", md: "lg" }}
+                              color="primary"
+                            >
                               {t.label}
                             </Text>
                             <Select.ItemIndicator />
