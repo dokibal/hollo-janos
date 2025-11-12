@@ -29,6 +29,7 @@ export default function ContactBlock({
     >
       <Box display="flex" justifyContent="left" width="100%">
         <Heading
+          as="h3"
           marginBottom="clamp(1rem, 2vw, 2rem)"
           fontSize={{ base: "xl", md: "2xl" }}
         >

@@ -52,7 +52,7 @@ export default function About() {
                 width="100%"
                 marginBottom="0.5em"
               >
-                <Heading fontSize={{ base: "lg", md: "xl" }}>
+                <Heading as="h3" fontSize={{ base: "lg", md: "xl" }}>
                   Miért válasszon minket?
                 </Heading>
               </Box>
@@ -80,7 +80,7 @@ export default function About() {
                 marginTop="0.5em"
                 marginBottom="0.5em"
               >
-                <Heading fontSize={{ base: "lg", md: "xl" }}>
+                <Heading as="h3" fontSize={{ base: "lg", md: "xl" }}>
                   Amit kínálunk:{" "}
                 </Heading>
               </Box>

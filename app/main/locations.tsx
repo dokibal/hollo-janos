@@ -28,6 +28,7 @@ export default function Locations() {
           {Array.from(locations.keys()).map((k) => (
             <Box key={k}>
               <Heading
+                as="h4"
                 color="accent"
                 fontSize={{ base: "lg", md: "xl" }}
                 marginBottom="0.5em"

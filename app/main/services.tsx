@@ -58,7 +58,7 @@ export const ServiceCard = ({
       color="primary"
       boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
     >
-      <Card.Header fontSize="lg" fontWeight="semibold">
+      <Card.Header as="h3" fontSize="lg" fontWeight="semibold">
         <HStack>
           {icon}
           <Heading fontSize={{ base: "lg", md: "xl" }}>{title}</Heading>
