@@ -154,7 +154,7 @@ export default function Form() {
                             >
                               {t.label}
                             </Text>
-                            <Select.ItemIndicator />
+                            <Select.ItemIndicator color="primary" />
                           </Select.Item>
                         )
                       )}
