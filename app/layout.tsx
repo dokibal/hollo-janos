@@ -19,8 +19,8 @@ const roboto = Roboto({
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const title: string = `${companyName} | Villanyszerelés Tatabányán és környékén`;
-  const description: string = `${companyName}: Megbízható villanyszerelés Tatabányán és környékén. Lakossági és ipari villanyszerelési szolgáltatások gyors, szakszerű kivitelezéssel.`;
+  const title: string = `${companyName} - Villanyszerelő Tatabányán és környékén`;
+  const description: string = `Megbízható villanyszerelő Tatabányán és környékén. Lakossági és ipari villanyszerelés gyors, precíz és szakszerű kivitelezéssel.`;
 
   return (
     <html lang="hu" className={roboto.className}>
