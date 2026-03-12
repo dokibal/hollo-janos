@@ -1,4 +1,3 @@
-import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -15,8 +14,10 @@ import {
 } from "@chakra-ui/react";
 import { JSX } from "@emotion/react/jsx-runtime";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaInfoCircle, FaPhoneAlt } from "react-icons/fa";
+import { FaImages, FaInfoCircle, FaPhoneAlt } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import { MdElectricalServices } from "react-icons/md";
 import { companyName, phoneNumberLink } from "../constants";
@@ -48,6 +49,15 @@ const navItems: NavItem[] = [
     ),
   },
   {
+    to: "/gallery",
+    title: "Galéria",
+    icon: (
+      <Icon size="md">
+        <FaImages />
+      </Icon>
+    ),
+  },
+  {
     to: "/#contact",
     title: "Kapcsolat",
     icon: (
@@ -60,6 +70,7 @@ const navItems: NavItem[] = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const [activeSection, setActiveSection] = useState("");
 
@@ -125,9 +136,13 @@ export default function Header() {
                 fontSize="lg"
                 background="none"
                 color={
-                  item.to.substring(2) === activeSection
-                    ? "accent"
-                    : "secondary"
+                  item.to.startsWith("/#")
+                    ? item.to.substring(2) === activeSection
+                      ? "accent"
+                      : "secondary"
+                    : pathname === item.to
+                      ? "accent"
+                      : "secondary"
                 }
                 borderBottom="hidden 1px"
                 _hover={{
@@ -161,7 +176,7 @@ export default function Header() {
               _hover={{ bg: "accent", color: "primary" }}
               ml="auto"
             >
-              <HamburgerIcon />
+              <FiMenu />
             </IconButton>
           </Drawer.Trigger>
           <Portal>
@@ -170,7 +185,7 @@ export default function Header() {
                 <Drawer.Body mt="5em">
                   <VStack gap="2em" align="center">
                     {navItems.map((item) => (
-                      <HStack color="textWhite">
+                      <HStack key={item.to} color="textWhite">
                         {item.icon}
                         <ChakraLink
                           as={Link}
