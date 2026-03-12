@@ -3,6 +3,7 @@
 import { Box } from "@chakra-ui/react";
 import About from "./main/about";
 import Contact from "./main/contact";
+import Gallery from "./main/gallery";
 import LandingPage from "./main/landing-page";
 import Services from "./main/services";
 
@@ -35,6 +36,7 @@ export default function Page() {
             bgImage="linear-gradient(to bottom, rgba(0,0,0,1), white)"
             opacity={0.4}
           ></Box>
+          <Gallery />
           <Contact />
         </Box>
       </Box>

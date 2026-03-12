@@ -14,7 +14,6 @@ import {
 } from "@chakra-ui/react";
 import { JSX } from "@emotion/react/jsx-runtime";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaImages, FaInfoCircle, FaPhoneAlt } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
@@ -49,7 +48,7 @@ const navItems: NavItem[] = [
     ),
   },
   {
-    to: "/gallery",
+    to: "/#gallery",
     title: "Galéria",
     icon: (
       <Icon size="md">
@@ -70,7 +69,6 @@ const navItems: NavItem[] = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const pathname = usePathname();
 
   const [activeSection, setActiveSection] = useState("");
 
@@ -136,13 +134,7 @@ export default function Header() {
                 fontSize="lg"
                 background="none"
                 color={
-                  item.to.startsWith("/#")
-                    ? item.to.substring(2) === activeSection
-                      ? "accent"
-                      : "secondary"
-                    : pathname === item.to
-                      ? "accent"
-                      : "secondary"
+                  item.to.substring(2) === activeSection ? "accent" : "secondary"
                 }
                 borderBottom="hidden 1px"
                 _hover={{
