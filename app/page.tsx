@@ -37,6 +37,11 @@ export default function Page() {
             opacity={0.4}
           ></Box>
           <Gallery />
+          <Box
+            h="7em"
+            bgImage="linear-gradient(to bottom, white, rgba(0,0,0,1))"
+            opacity={0.4}
+          ></Box>
           <Contact />
         </Box>
       </Box>

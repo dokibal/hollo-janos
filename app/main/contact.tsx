@@ -7,6 +7,7 @@ export default function Contact() {
   return (
     <section id="contact">
       <Flex
+        bg="rgba(0, 0, 0, 0.4)"
         minH={{ base: "auto", md: "100vh" }}
         padding="clamp(1rem, 4vw, 3rem)"
         overflow="auto"
