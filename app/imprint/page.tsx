@@ -1,9 +1,18 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { address, companyOwner, email, phoneNumber } from "../constants";
+import { createPageMetadata } from "../seo";
 
-export default function PrivacyPolicy() {
+export const metadata = createPageMetadata({
+  title: "Impresszum | Holló-Vill",
+  description:
+    "A Holló-Vill weboldal üzemeltetőjének, Holló János egyéni vállalkozónak az adatai és elérhetőségei.",
+  path: "/imprint",
+});
+
+export default function Imprint() {
   return (
     <Box
+      as="main"
       minH={{ base: "auto", md: "100vh" }}
       padding="clamp(1rem, 4vw, 3rem)"
       pt="4em"
@@ -13,7 +22,7 @@ export default function PrivacyPolicy() {
     >
       <Box>
         <Heading
-          as="h3"
+          as="h1"
           textStyle={{ base: "lg", md: "2xl" }}
           marginBottom="1em"
         >

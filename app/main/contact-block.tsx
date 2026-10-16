@@ -15,23 +15,25 @@ export default function ContactBlock({
   return (
     <VStack
       display="flex"
-      justifyContent="left"
-      bgColor={color}
+      align="stretch"
+      gap="24px"
+      bgColor={color === "textWhite" ? "white" : color}
       color={color === "textWhite" ? "black" : "textWhite"}
-      borderRadius="1em"
+      borderRadius="16px"
       width="100%"
       height="fit-content"
-      paddingTop="5em"
-      paddingBottom="5em"
-      boxShadow="0 4px 20px 0 rgba(15, 17, 19, 0.7), 0 4px 20px 0 rgba(15, 17, 19, 0.7)"
+      boxShadow="0 8px 24px rgba(0,0,0,0.12)"
+      border="1px solid"
+      borderColor={color === "textWhite" ? "#E4E5E2" : "transparent"}
       fontSize={{ base: "md", md: "lg" }}
-      padding="2em 1em 2em 1em"
+      padding={{ base: "24px", md: "32px" }}
     >
       <Box display="flex" justifyContent="left" width="100%">
         <Heading
-          as="h3"
-          marginBottom="clamp(1rem, 2vw, 2rem)"
-          fontSize={{ base: "xl", md: "2xl" }}
+          as="h2"
+          fontSize={{ base: "28px", md: "32px" }}
+          lineHeight="1.25"
+          letterSpacing="-0.02em"
         >
           {title}
         </Heading>

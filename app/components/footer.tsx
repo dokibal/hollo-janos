@@ -22,24 +22,31 @@ import {
 export default function Footer() {
   return (
     <VStack
+      as="footer"
       bg="primaryDark"
-      p="0.5em"
+      py="32px"
       color="textWhite"
-      fontWeight="light"
-      fontSize={{ base: "sm", md: "md" }}
-      justify="center"
+      fontWeight="normal"
+      fontSize="md"
+      align="stretch"
+      gap="24px"
     >
-      <SimpleGrid columns={2} gap="1em">
+      <SimpleGrid className="site-container" columns={{ base: 1, md: 2 }} gap="24px">
         <GridItem>
-          <VStack>
+          <VStack align={{ base: "center", md: "start" }} gap="4px">
             <ChakraLink
               as={Link}
               href={phoneNumberLink}
               color="inherit"
               textDecoration="none"
               outline="none"
+              minH={{ base: "44px", md: "32px" }}
+              px="8px"
+              gap="10px"
+              justifyContent="center"
+              textAlign="center"
             >
-              <Icon size="sm" color="inherit">
+              <Icon boxSize="16px" flexShrink={0} color="inherit" aria-hidden="true">
                 <FaPhoneAlt />
               </Icon>{" "}
               {phoneNumber}
@@ -50,8 +57,13 @@ export default function Footer() {
               color="inherit"
               textDecoration="none"
               outline="none"
+              minH={{ base: "44px", md: "32px" }}
+              px="8px"
+              gap="10px"
+              justifyContent="center"
+              textAlign="center"
             >
-              <Icon size="sm" color="inherit">
+              <Icon boxSize="16px" flexShrink={0} color="inherit" aria-hidden="true">
                 <MdOutlineEmail />
               </Icon>{" "}
               {email}
@@ -62,8 +74,13 @@ export default function Footer() {
               color="inherit"
               textDecoration="none"
               outline="none"
+              minH={{ base: "44px", md: "32px" }}
+              px="8px"
+              gap="10px"
+              justifyContent="center"
+              textAlign="center"
             >
-              <Icon size={{ base: "sm", md: "md" }} color="inherit">
+              <Icon boxSize="16px" flexShrink={0} color="inherit" aria-hidden="true">
                 <FaFacebookF />
               </Icon>{" "}
               {facebook}
@@ -71,7 +88,15 @@ export default function Footer() {
           </VStack>
         </GridItem>
         <GridItem>
-          <VStack>
+          <VStack
+            as="nav"
+            aria-label="Jogi információk"
+            align={{ base: "center", md: "end" }}
+            gap="4px"
+            borderTop={{ base: "1px solid rgba(255,255,255,0.16)", md: "none" }}
+            pt={{ base: "24px", md: "0" }}
+            fontSize="sm"
+          >
             <ChakraLink
               display="flex"
               color="inherit"
@@ -80,6 +105,9 @@ export default function Footer() {
               target="_blank"
               textDecoration="underline"
               outline="none"
+              minH={{ base: "44px", md: "32px" }}
+              px="8px"
+              textAlign="center"
             >
               Adatkezelési tájékoztató
             </ChakraLink>
@@ -91,13 +119,24 @@ export default function Footer() {
               target="_blank"
               textDecoration="underline"
               outline="none"
+              minH={{ base: "44px", md: "32px" }}
+              px="8px"
+              textAlign="center"
             >
               Impresszum
             </ChakraLink>
-            <Text color="inherit">© 2025 {companyName}</Text>
           </VStack>
         </GridItem>
       </SimpleGrid>
+      <Text
+        className="site-container"
+        color="#A5A9AC"
+        fontSize="sm"
+        lineHeight="1.5"
+        textAlign={{ base: "center", md: "right" }}
+      >
+        © 2025 {companyName}
+      </Text>
     </VStack>
   );
 }

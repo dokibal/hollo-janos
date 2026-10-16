@@ -1,33 +1,23 @@
-import { Flex, GridItem, SimpleGrid } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import Reveal from "../components/reveal";
 import ContactUs from "./contact-us";
 import Locations from "./locations";
 import Form from "./quotation";
 
 export default function Contact() {
   return (
-    <section id="contact">
-      <Flex
-        minH={{ base: "auto", md: "100vh" }}
-        padding="clamp(1rem, 4vw, 3rem)"
-        overflow="auto"
-        display="flex"
-        height="100%"
-      >
-        <SimpleGrid columns={{ base: 1, md: 2 }} gap="4em">
-          <GridItem
-            colSpan={{ base: 1, md: 1 }}
-            display="flex"
-            flexDirection="column"
-            gap="4em"
-          >
-            <ContactUs />
-            <Locations />
-          </GridItem>
-          <GridItem colSpan={{ base: 1, md: 1 }} display="flex">
-            <Form />
-          </GridItem>
-        </SimpleGrid>
-      </Flex>
+    <section id="contact" className="section-space">
+      <Box className="site-container contact-grid">
+        <Reveal className="contact-details">
+          <ContactUs />
+        </Reveal>
+        <Reveal className="contact-form">
+          <Form />
+        </Reveal>
+        <Reveal className="contact-locations">
+          <Locations />
+        </Reveal>
+      </Box>
     </section>
   );
 }

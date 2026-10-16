@@ -1,19 +1,20 @@
 import {
   Box,
   Card,
-  Flex,
   GridItem,
   Heading,
   HStack,
   Icon,
-  Image,
   List,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
 import { JSX } from "@emotion/react/jsx-runtime";
+import Image from "next/image";
 import { FaLightbulb } from "react-icons/fa";
 import { MdBolt, MdElectricalServices } from "react-icons/md";
+import toolsImage from "../../public/tools.webp";
+import Reveal from "../components/reveal";
 
 const personal: string[] = [
   "Új elektromos hálózat kiépítése családi házakban, lakásokban",
@@ -52,35 +53,33 @@ export const ServiceCard = ({
 }: Readonly<ServiceCardProps>) => {
   return (
     <Card.Root
-      height="100%"
       borderRadius="1em"
       bgColor="white"
       color="primary"
-      boxShadow="0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2)"
+      boxShadow="0 8px 24px rgba(0,0,0,0.12)"
+      border="none"
+      minW="0"
     >
-      <Card.Header as="h3" fontSize="lg" fontWeight="semibold">
-        <HStack>
+      <Card.Header padding={{ base: "24px 24px 0", md: "32px 32px 0" }}>
+        <HStack gap="12px" align="start">
           {icon}
-          <Heading fontSize={{ base: "lg", md: "xl" }}>{title}</Heading>
+          <Heading as="h3" fontSize={{ base: "20px", md: "24px" }} lineHeight="1.3">
+            {title}
+          </Heading>
         </HStack>
       </Card.Header>
-      <Card.Body>
-        <List.Root variant="plain">
+      <Card.Body padding={{ base: "24px", md: "28px 32px 32px" }}>
+        <List.Root variant="plain" gap="12px">
           {content.map((c) => (
-            <List.Item key={c} display="flex" alignItems="center" gap="0.5em">
-              <List.Indicator>
+            <List.Item key={c} display="flex" alignItems="start" gap="12px">
+              <List.Indicator flexShrink={0} mt="3px">
                 <Icon size="lg" color="accent">
                   <MdBolt />
                 </Icon>
               </List.Indicator>
               <Text
-                padding="0.25em"
                 width="100%"
-                _hover={{
-                  background: "accent",
-                  color: "white",
-                  borderRadius: "1em",
-                }}
+                lineHeight="1.6"
                 fontSize={{ base: "md", md: "lg" }}
               >
                 {c}
@@ -95,53 +94,56 @@ export const ServiceCard = ({
 
 export default function Services() {
   return (
-    <section id="services">
-      <Box
-        bg="rgba(0, 0, 0, 0.4)"
-        minH={{ base: "auto", md: "100vh" }}
-        padding="clamp(1rem, 4vw, 3rem)"
-      >
+    <section id="services" className="section-space">
+      <Box className="site-container">
         <Heading
-          fontSize={{ base: "xl", md: "2xl" }}
-          marginBottom="2em"
+          as="h2"
+          fontSize={{ base: "28px", md: "32px" }}
+          lineHeight="1.25"
+          letterSpacing="-0.02em"
+          marginBottom={{ base: "28px", md: "36px" }}
           color="white"
         >
           Teljeskörű villanyszerelési megoldások
         </Heading>
-        <SimpleGrid gap="4em" columns={{ base: 1, md: 2 }}>
+        <SimpleGrid gap="32px" columns={{ base: 1, lg: 2 }} alignItems="start">
           <GridItem>
-            <ServiceCard
-              icon={
-                <Icon color="primary" size="2xl">
-                  <FaLightbulb />
-                </Icon>
-              }
-              title="Lakossági/céges villanyszerelés"
-              content={personal}
-            />
+            <Reveal>
+              <ServiceCard
+                icon={
+                  <Icon color="primary" size="2xl">
+                    <FaLightbulb />
+                  </Icon>
+                }
+                title="Lakossági/céges villanyszerelés"
+                content={personal}
+              />
+            </Reveal>
           </GridItem>
           <GridItem>
-            <ServiceCard
-              icon={
-                <Icon color="primary" size="2xl">
-                  <MdElectricalServices />
-                </Icon>
-              }
-              title="További kisipari/céges villanyszerelés"
-              content={business}
-            />
+            <Reveal>
+              <ServiceCard
+                icon={
+                  <Icon color="primary" size="2xl">
+                    <MdElectricalServices />
+                  </Icon>
+                }
+                title="További kisipari/céges villanyszerelés"
+                content={business}
+              />
+            </Reveal>
+            <Box mt="32px" width="100%" maxW="480px" mx="auto">
+              <Reveal>
+                <Image
+                  src={toolsImage}
+                  sizes="(min-width: 64rem) 40vw, (min-width: 36rem) 480px, calc(100vw - 48px)"
+                  style={{ width: "100%", height: "auto", borderRadius: "1em" }}
+                  alt="Villanyszerelő szerszámok, izzók, szigetelő szalagok"
+                />
+              </Reveal>
+            </Box>
           </GridItem>
         </SimpleGrid>
-        <Flex width="100%" justifyContent="center">
-          <Image
-            src="tools.webp"
-            marginTop="4em"
-            width={{ base: "100%", md: "40%" }}
-            height="auto"
-            borderRadius="1em"
-            alt="Villanyszerelő szerszámok, izzók, szigetelő szalagok"
-          />
-        </Flex>
       </Box>
     </section>
   );

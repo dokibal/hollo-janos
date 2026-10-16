@@ -1,7 +1,5 @@
-import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
   Link as ChakraLink,
   Drawer,
   Flex,
@@ -9,14 +7,16 @@ import {
   HStack,
   Icon,
   IconButton,
-  Image,
   Portal,
   VStack,
 } from "@chakra-ui/react";
 import { JSX } from "@emotion/react/jsx-runtime";
 import Link from "next/link";
+import Image from "next/image";
+import companyLogo from "../../public/company_logo.webp";
 import { useEffect, useState } from "react";
 import { FaInfoCircle, FaPhoneAlt } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import { MdElectricalServices } from "react-icons/md";
 import { companyName, phoneNumberLink } from "../constants";
@@ -72,14 +72,10 @@ export default function Header() {
           if (entry.isIntersecting) {
             const id: string = entry.target.id;
             setActiveSection(id);
-
-            if (window.location.hash !== `#${id}`) {
-              history.replaceState(null, "", `#${id}`);
-            }
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "-80px 0px -60% 0px" }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -90,57 +86,59 @@ export default function Header() {
   return (
     <Box
       bg="white"
-      p="0.5em"
-      height="3em"
+      height="64px"
       width="100%"
-      boxShadow="sm"
+      borderBottom="1px solid #E4E5E2"
       position="fixed"
       top="0"
       left="0"
       zIndex="1000"
     >
-      <Flex alignItems="center" height="100%" w="100%">
+      <Flex className="site-container" alignItems="center" height="100%">
         <HStack
           height="100%"
-          marginLeft="0.5em"
           spaceX="0.5em"
           cursor="pointer"
         >
-          <ChakraLink as={Link} href="/" textDecoration="none" outline="none">
+          <ChakraLink as={Link} href="/" gap="10px" textDecoration="none" outline="none">
             <Image
-              src="company_logo.webp"
-              height="2em"
-              width="auto"
-              objectFit="contain"
+              src={companyLogo}
+              width={35}
+              height={32}
+              loading="eager"
+              style={{ height: "2em", width: "auto", objectFit: "contain" }}
               alt="Fekete holló sárga vezetéken"
             />
-            <Heading color="primary">{companyName}</Heading>
+            <Heading as="span" color="primary">
+              {companyName}
+            </Heading>
           </ChakraLink>
         </HStack>
 
-        <Flex display={{ base: "none", md: "flex" }} gap={4} ml="auto">
+        <Flex as="nav" display={{ base: "none", md: "flex" }} gap="24px" ml="auto" height="100%" alignItems="center">
           {navItems.map((item) => (
-            <Link key={item.to} href={item.to}>
-              <Button
-                fontSize="lg"
-                background="none"
-                color={
-                  item.to.substring(2) === activeSection
-                    ? "accent"
-                    : "secondary"
-                }
-                borderBottom="hidden 1px"
+              <ChakraLink
+                as={Link}
+                key={item.to}
+                href={item.to}
+                aria-current={item.to.substring(2) === activeSection ? "location" : undefined}
+                fontSize="md"
+                minH="44px"
+                fontWeight="bold"
+                color={item.to.substring(2) === activeSection ? "primary" : "secondary"}
+                borderBottom="3px solid"
+                borderBottomColor={item.to.substring(2) === activeSection ? "accent" : "transparent"}
+                borderRadius="0"
+                textDecoration="none"
+                transition="border-color 160ms ease, color 160ms ease"
                 _hover={{
-                  color: "accent",
+                  color: "primary",
                   textDecoration: "none",
                   borderBottomColor: "accent",
-                  borderRadius: "0",
-                  borderBottom: "solid 1px",
                 }}
               >
                 {item.title}
-              </Button>
-            </Link>
+              </ChakraLink>
           ))}
         </Flex>
 
@@ -154,6 +152,8 @@ export default function Header() {
           <Drawer.Trigger asChild>
             <IconButton
               size="md"
+              minW="44px"
+              minH="44px"
               aria-label="Open Menu"
               display={{ base: "flex", md: "none" }}
               bg="primary"
@@ -161,7 +161,9 @@ export default function Header() {
               _hover={{ bg: "accent", color: "primary" }}
               ml="auto"
             >
-              <HamburgerIcon />
+              <Icon>
+                <FiMenu />
+              </Icon>
             </IconButton>
           </Drawer.Trigger>
           <Portal>
@@ -170,7 +172,7 @@ export default function Header() {
                 <Drawer.Body mt="5em">
                   <VStack gap="2em" align="center">
                     {navItems.map((item) => (
-                      <HStack color="textWhite">
+                      <HStack key={item.to} color="textWhite">
                         {item.icon}
                         <ChakraLink
                           as={Link}
@@ -193,36 +195,29 @@ export default function Header() {
                       alignItems="center"
                       gap="2em"
                     >
-                      <ChakraLink
-                        as={Link}
-                        href="/#quotation"
-                        onClick={() => setMenuOpen(false)}
-                        textDecoration="none"
-                        outline="none"
-                      >
-                        <CustomButton>Kérjen árajánlatot</CustomButton>
-                      </ChakraLink>
-                      <ChakraLink
-                        as={Link}
-                        href={phoneNumberLink}
-                        textDecoration="none"
-                        outline="none"
-                      >
-                        <CustomButton>Hívjon most</CustomButton>
-                      </ChakraLink>
+                      <CustomButton asChild>
+                        <Link href="/#quotation" onClick={() => setMenuOpen(false)}>Kérjen árajánlatot</Link>
+                      </CustomButton>
+                      <CustomButton asChild>
+                        <Link href={phoneNumberLink}>Hívjon most</Link>
+                      </CustomButton>
                     </Flex>
                   </VStack>
                 </Drawer.Body>
                 <Drawer.CloseTrigger asChild>
-                  <Icon
-                    size="2xl"
+                  <IconButton
+                    aria-label="Close Menu"
+                    position="absolute"
+                    top="16px"
+                    right="16px"
+                    minW="44px"
+                    minH="44px"
+                    bg="transparent"
                     color="textWhite"
-                    _hover={{
-                      cursor: "pointer",
-                    }}
+                    _hover={{ bg: "whiteAlpha.200" }}
                   >
                     <IoClose />
-                  </Icon>
+                  </IconButton>
                 </Drawer.CloseTrigger>
               </Drawer.Content>
             </Drawer.Positioner>

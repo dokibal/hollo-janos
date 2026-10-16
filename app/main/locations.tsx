@@ -24,11 +24,11 @@ export default function Locations() {
       color="primary"
     >
       <Flex flexDirection="column">
-        <Box spaceY="1em" color="textWhite" marginBottom="2em">
+        <Box spaceY="24px" color="textWhite" marginBottom="24px" lineHeight="1.75">
           {Array.from(locations.keys()).map((k) => (
             <Box key={k}>
               <Heading
-                as="h4"
+                as="h3"
                 color="accent"
                 fontSize={{ base: "lg", md: "xl" }}
                 marginBottom="0.5em"
@@ -57,9 +57,11 @@ export default function Locations() {
           ))}
         </Box>
         <Flex
-          aspectRatio="1"
-          marginLeft={{ base: 0, md: "20%" }}
-          marginRight={{ base: 0, md: "20%" }}
+          aspectRatio="4 / 3"
+          width="100%"
+          overflow="hidden"
+          borderRadius="12px"
+          bg="white"
           justifyContent="center"
         >
           <iframe
@@ -69,6 +71,7 @@ export default function Locations() {
               width: "100%",
               height: "100%",
               borderRadius: "1em",
+              border: 0,
             }}
             src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=place_id:${placeId}&zoom=${zoom}`}
           ></iframe>

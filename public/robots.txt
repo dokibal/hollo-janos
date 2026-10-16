@@ -5,3 +5,5 @@ Disallow: /private/
 Allow: /
 Allow: /privacy-policy
 Allow: /imprint
+
+Sitemap: https://hollo-vill.hu/sitemap.xml

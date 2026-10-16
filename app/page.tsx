@@ -1,43 +1,27 @@
-"use client";
-
-import { Box } from "@chakra-ui/react";
-import About from "./main/about";
-import Contact from "./main/contact";
+import { companyName } from "./constants";
+import HomePage from "./main/home-page";
 import LandingPage from "./main/landing-page";
-import Services from "./main/services";
+import { businessStructuredData, createPageMetadata } from "./seo";
+
+export const metadata = createPageMetadata({
+  title: `${companyName} - Villanyszerelő Tatabányán és környékén`,
+  description:
+    "Megbízható villanyszerelő Tatabányán és környékén. Lakossági és ipari villanyszerelés gyors, precíz és szakszerű kivitelezéssel.",
+  path: "/",
+});
 
 export default function Page() {
   return (
-    <Box position="relative">
-      <Box minH="100vh" overflow="hidden">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(businessStructuredData).replace(/</g, "\\u003c"),
+        }}
+      />
+      <HomePage>
         <LandingPage />
-        <Box position="absolute" inset="0" zIndex={0}>
-          <Box
-            position="absolute"
-            inset="0"
-            bgImage="url('/background.svg')"
-            bgRepeat="repeat"
-            bgSize="200px"
-            bgColor="white"
-          />
-          <Box position="absolute" inset="0" bg="rgba(255,255,255,0.8)" />
-        </Box>
-        <Box position="relative" zIndex={1}>
-          <About />
-          <Box
-            h="7em"
-            bgImage="linear-gradient(to bottom, white, rgba(0,0,0,1))"
-            opacity={0.4}
-          ></Box>
-          <Services />
-          <Box
-            h="7em"
-            bgImage="linear-gradient(to bottom, rgba(0,0,0,1), white)"
-            opacity={0.4}
-          ></Box>
-          <Contact />
-        </Box>
-      </Box>
-    </Box>
+      </HomePage>
+    </>
   );
 }

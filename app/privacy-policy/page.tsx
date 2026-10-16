@@ -1,6 +1,14 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { JSX } from "react";
 import { address, companyOwner, email, phoneNumber } from "../constants";
+import { createPageMetadata } from "../seo";
+
+export const metadata = createPageMetadata({
+  title: "Adatkezelési tájékoztató | Holló-Vill",
+  description:
+    "Tájékoztató a Holló-Vill ajánlatkérő űrlapján megadott személyes adatok kezeléséről és az érintettek jogairól.",
+  path: "/privacy-policy",
+});
 
 type PrivacyPolicySectionProps = {
   index: number;
@@ -15,7 +23,9 @@ const PrivacyPolicySection = ({
 }: Readonly<PrivacyPolicySectionProps>) => {
   return (
     <Box pt="0.5em" pb="0.5em" textAlign="justify">
-      <Heading size="lg">{`${index}. ${title}`}</Heading>
+      <Heading as="h2" size="lg">
+        {`${index}. ${title}`}
+      </Heading>
       {children}
     </Box>
   );
@@ -24,6 +34,7 @@ const PrivacyPolicySection = ({
 export default function PrivacyPolicy() {
   return (
     <Box
+      as="main"
       minH={{ base: "auto", md: "100vh" }}
       padding="clamp(1rem, 4vw, 3rem)"
       pt="4em"
@@ -37,7 +48,7 @@ export default function PrivacyPolicy() {
     >
       <Box>
         <Heading
-          as="h3"
+          as="h1"
           textStyle={{ base: "lg", md: "2xl" }}
           marginBottom="1em"
         >

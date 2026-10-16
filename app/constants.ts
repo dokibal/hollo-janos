@@ -1,5 +1,5 @@
 export const phoneNumber: string = "+36 30 813 3821";
-export const phoneNumberLink: string = `tel:${phoneNumber.replace(" ", "")}`;
+export const phoneNumberLink: string = `tel:${phoneNumber.replace(/\s/g, "")}`;
 export const siteUrl: string = "https://hollo-vill.hu";
 export const email: string = "info@hollo-vill.hu";
 export const emailLink: string = `mailto:${email}`;
