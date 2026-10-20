@@ -2,6 +2,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Az ajánlatkérő űrlap levelezésének AWS SES-beállításai és élesítési lépései:
+[SES átállási útmutató](docs/ses-email-setup.md).
+
+A levelezés tesztjei valódi küldés nélkül: `pnpm test:email`.
+
 First, run the development server:
 
 ```bash
