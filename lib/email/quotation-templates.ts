@@ -70,7 +70,7 @@ ${htmlField("Leírás", quotation.message)}
 <p>Üdvözlettel,<br /><br />
 <strong>Holló János</strong><br />
 ${escapeHtml(companyName)}<br />
-<a href="${escapeHtml(siteLink)}">${escapeHtml(siteLink)}</a><br />
+<a href="${escapeHtml(siteLink)}">${escapeHtml(siteLink.replace("https://", ""))}</a><br />
 <a href="${escapeHtml(phoneNumberLink)}">${escapeHtml(phoneNumber)}</a><br />
 <a href="${escapeHtml(facebookLink)}">${escapeHtml(facebook)}</a></p>`),
     text: `Kedves ${quotation.name}!
@@ -98,7 +98,7 @@ ${changes}
 
 Holló János
 ${companyName}
-${siteLink}
+${siteLink.replace("https://", "")}
 ${phoneNumber}
 ${facebook}: ${facebookLink}`,
   };

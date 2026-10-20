@@ -1,6 +1,8 @@
 import {
   Box,
   Field,
+  Heading,
+  Icon,
   Portal,
   Select,
   Text,
@@ -10,8 +12,9 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { LuCheck } from "react-icons/lu";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { Button } from "../components/button";
 import { Input } from "../components/input";
@@ -30,6 +33,23 @@ const RequiredIndicator = () => <span style={{ color: "red" }}>*</span>;
 
 export default function Form() {
   const [isSent, setIsSent] = useState(false);
+  const [successMinHeight, setSuccessMinHeight] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const successContentRef = useRef<HTMLDivElement>(null);
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (!isSent) return;
+
+    successHeadingRef.current?.focus({ preventScroll: true });
+    successContentRef.current?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+      block: "center",
+    });
+  }, [isSent]);
+
   const {
     control,
     handleSubmit,
@@ -64,6 +84,7 @@ export default function Form() {
         throw new Error("Quotation request failed");
       }
 
+      setSuccessMinHeight(sectionRef.current?.getBoundingClientRect().height ?? 0);
       setIsSent(true);
       sendGAEvent("event", "generate_lead", { method: "quotation_form" });
     } catch {
@@ -80,23 +101,88 @@ export default function Form() {
   const isValidEmail: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   return (
-    <section id="quotation">
+    <section id="quotation" ref={sectionRef}>
       {isSent ? (
         <VStack
           role="status"
+          aria-labelledby="quotation-success-title"
           bgColor="white"
           color="primary"
-          borderRadius="1em"
+          borderRadius="16px"
+          border="1px solid #E4E5E2"
+          borderTop="4px solid"
+          borderTopColor="accent"
           width="100%"
-          height="fit"
-          padding="2em"
+          minH={`${Math.max(successMinHeight, 560)}px`}
+          justify="center"
+          padding={{ base: "32px 24px", md: "56px 40px" }}
           boxShadow="0 8px 24px rgba(0,0,0,0.12)"
         >
-          <Text fontSize={{ base: "lg", md: "xl" }}>
-            ✅ Árajánlatkérés sikeresen elküldve! Köszönjük, hogy megkeresett
-            bennünket. Hamarosan felvesszük Önnel a kapcsolatot a megadott
-            elérhetőségek egyikén.
-          </Text>
+          <VStack
+            ref={successContentRef}
+            gap="24px"
+            textAlign="center"
+            maxW="400px"
+          >
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              boxSize="80px"
+              borderRadius="full"
+              background="#FFF5BF"
+              aria-hidden="true"
+            >
+              <Icon boxSize="40px" strokeWidth="2.5">
+                <LuCheck />
+              </Icon>
+            </Box>
+            <VStack gap="12px">
+              <Text
+                fontSize="xs"
+                fontWeight="700"
+                letterSpacing="0.12em"
+                textTransform="uppercase"
+                color="#62686D"
+              >
+                Sikeres árajánlatkérés
+              </Text>
+              <Heading
+                as="h2"
+                id="quotation-success-title"
+                ref={successHeadingRef}
+                tabIndex={-1}
+                fontSize={{ base: "28px", md: "32px" }}
+                lineHeight="1.2"
+                letterSpacing="-0.02em"
+                outline="none"
+              >
+                Köszönjük a megkeresését!
+              </Heading>
+              <Text
+                fontSize={{ base: "md", md: "lg" }}
+                lineHeight="1.7"
+                color="#50565B"
+              >
+                Árajánlatkérését sikeresen elküldtük.
+              </Text>
+            </VStack>
+            <Box
+              width="100%"
+              background="#F7F7F2"
+              border="1px solid #E8E9E1"
+              borderRadius="12px"
+              padding="20px"
+            >
+              <Text fontWeight="700" mb="8px">
+                Mi történik ezután?
+              </Text>
+              <Text color="#50565B" lineHeight="1.7">
+                Átnézzük a megadott részleteket, és hamarosan felvesszük Önnel a
+                kapcsolatot a megadott elérhetőségek egyikén.
+              </Text>
+            </Box>
+          </VStack>
         </VStack>
       ) : (
         <ContactBlock title="Kérjen árajánlatot!" color="textWhite">
