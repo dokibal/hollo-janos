@@ -141,3 +141,71 @@ hash-hivatkozás, az impresszumról visszatérés és a nyitóképernyő kapcsol
 gombja is sikeresen ellenőrizve lett. A mért eltérés minden esetben 1 pixel
 alatti volt; böngészős hiba nem jelentkezett. A production build és a
 TypeScript-ellenőrzés sikeres.
+
+## Reszponzív képek és renderblokkoló CSS – 2026. október 20.
+
+Az éles oldal ellenőrzésekor a tartalmi képek már `next/image` komponensek
+voltak, de a `sizes` értékek és az alapértelmezett méretlépcsők néhány
+nézetben a szükségesnél nagyobb fájlt választottak. A portré méretezése
+most követi a tízoszlopos rácsot és a 320/400 pixeles korlátot; a szerszámos
+kép a kétoszlopos rácsot és a 480 pixeles korlátot. A Next képméretei
+kiegészültek a tényleges megjelenítési szélességekhez és a kétszeres
+képpontsűrűséghez illeszkedő változatokkal.
+
+1440 pixeles asztali nézetben, WebP-válaszokkal:
+
+| Kép | Korábbi szélesség | Új szélesség | Korábbi fájl | Új fájl |
+| --- | ---: | ---: | ---: | ---: |
+| Logó, 1× kijelző | 48 px | 40 px | 1258 B | 1016 B |
+| Portré, 1× kijelző | 640 px | 400 px | 34 918 B | 18 624 B |
+| Szerszámok, 1× kijelző | 640 px | 480 px | 28 084 B | 18 188 B |
+| Portré, 2× kijelző | 828 px | 800 px | 48 020 B | 46 362 B |
+| Szerszámok, 2× kijelző | 1200 px | 960 px | 66 832 B | 49 704 B |
+
+A körülbelül 13,5 kB-os közös CSS HTML-be ágyazását a Next
+`experimental.inlineCss` beállításával kipróbáltuk, majd a felhasználó
+stabilitási preferenciája alapján eltávolítottuk. A végleges változatban
+a CSS a megszokott, külön gyorsítótárazható fájlként érkezik; a
+renderblokkoló CSS-re vonatkozó figyelmeztetés ezért megmaradhat.
+A képméretezési javítások megmaradtak. A kísérleti funkciónál a CSS nem
+gyorsítótárazható külön a HTML-től, és az RSC-adatokban is szerepel.
+Útmutató: https://nextjs.org/docs/app/api-reference/config/next-config-js/inlineCss
+
+Azonos helyi production builden, Lighthouse mobilos alapbeállításokkal,
+Edge böngészőben; a Google Analytics, Tag Manager és Maps kérései mindkét
+futásban blokkolva voltak. Az alábbi eredmények a kísérleti próba
+eredményei, nem a CSS-beágyazás eltávolítása utáni végleges változaté:
+
+| Mutató | Alapállapot | Kísérleti próba |
+| --- | ---: | ---: |
+| Teljesítmény | 82 | 87 |
+| SEO / akadálymentesség / bevált gyakorlatok | 100 / 100 / 100 | 100 / 100 / 100 |
+| FCP | 1,5 s | 1,5 s |
+| LCP | 2,8 s | 2,7 s |
+| TBT | 520 ms | 390 ms |
+| CLS | 0,003 | 0,003 |
+| Renderblokkoló kérések | 1 CSS-fájl | 0 |
+
+Ez egy mérési pár, nem az éles látogatók sebességmérése és nem garantált
+pontszámnövekedés. A Lighthouse képkiszolgálási ellenőrzése már az
+alapállapotban sem jelzett hibát. A külső SEO-teszt pontos jelentése nem
+áll rendelkezésre, ezért annak sikeres eredménye nem igazolt.
+
+A kísérleti próba böngészős ellenőrzése: 320, 390, 768, 1024 és 1440 pixeles szélességek,
+390 és 1440 pixelen kétszeres képpontsűrűséggel is. Minden kép betöltött,
+nem volt vízszintes túlcsordulás; a nyitóképernyő címsorának geometriája
+mind a hét nézetben megegyezett az alapállapottal. A kisebb képek
+raszterezéséből és képarány-kerekítéséből minimális pixel- és képmagasság-
+eltérés adódhat. A javított build teljes böngészős futásában nem volt
+JavaScript- vagy hidratációs hiba. Az alkalmazáson belüli navigáció a jogi
+oldalakra és vissza, a mobilmenü, a szolgáltatásokra görgetés, valamint a
+JavaScript nélküli nyitóképernyő is működött. A production build és a
+TypeScript-ellenőrzés sikeres.
+
+Az eredmények, képernyőképek és Lighthouse-jelentések helye:
+`%TEMP%\hollo-vill-resources-20261020`. A módosítások nincsenek deployolva.
+
+A CSS-beágyazás eltávolítása után a production build és a típusellenőrzés
+ismét sikeres. Mindhárom oldal generált HTML-je ismét egy külső
+stíluslapra hivatkozik. Erre a végleges változatra nem készült új
+Lighthouse-mérés; a korábbi 87 pontos eredmény a kísérleti próbához tartozik.

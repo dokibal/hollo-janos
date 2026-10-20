@@ -136,7 +136,7 @@ export default function Services() {
               <Reveal>
                 <Image
                   src={toolsImage}
-                  sizes="(min-width: 64rem) 40vw, (min-width: 36rem) 480px, calc(100vw - 48px)"
+                  sizes="(min-width: 64rem) min(480px, calc(50vw - 40px)), min(480px, calc(100vw - 48px))"
                   style={{ width: "100%", height: "auto", borderRadius: "1em" }}
                   alt="Villanyszerelő szerszámok, izzók, szigetelő szalagok"
                 />

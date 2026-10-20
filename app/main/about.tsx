@@ -162,7 +162,7 @@ export default function About() {
               <Reveal>
                 <Image
                   src={profileImage}
-                  sizes="(min-width: 64rem) 400px, 320px"
+                  sizes="(min-width: 64rem) min(400px, calc(40vw - 48px)), min(320px, calc(100vw - 48px))"
                   style={{
                     borderRadius: "1em",
                     width: "100%",
