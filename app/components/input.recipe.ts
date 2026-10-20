@@ -8,11 +8,13 @@ export const inputRecipe = defineRecipe({
     borderColor: "#A5A9AC",
     background: "white",
     color: "primary",
+    // These white fields need light native controls even under a dark system theme.
+    colorScheme: "light",
+    WebkitTextFillColor: "#0F1113",
+    caretColor: "primary",
     // Browsers enforce their autofill background; an inset shadow covers it.
     "&:is(:autofill, :-webkit-autofill)": {
       boxShadow: "0 0 0 1000px white inset",
-      WebkitTextFillColor: "#0F1113",
-      caretColor: "primary",
     },
     outline: "none",
     _focus: {

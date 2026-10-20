@@ -187,6 +187,7 @@ export default function Form() {
       ) : (
         <ContactBlock title="Kérjen árajánlatot!" color="textWhite">
           <form
+            noValidate
             onSubmit={handleSubmit(onSubmit)}
             aria-describedby={
               errors.root?.server ? "quotation-error" : undefined
